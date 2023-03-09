@@ -57,17 +57,17 @@ export const authStyles = StyleSheet.create({
     position: "absolute",
     width: 177,
     height: 40,
-    left: 57,
+    left: 27,
     top: 150,
   },
   text: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
+    fontFamily: "Poppins-Regular",
     fontWeight: "700",
     fontSize: 16,
     lineHeight: 20,
-    letterSpacing: 0.2,
+    letterSpacing: 0.4,
     color: "#232323",
+    width: 400,
   },
 
   authButtons: {
