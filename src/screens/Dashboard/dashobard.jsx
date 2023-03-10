@@ -10,6 +10,7 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import Home from "../../components/TabNavigator/home";
+import Profile from "../../components/TabNavigator/profile";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
@@ -181,7 +182,6 @@ export default function Dashobard() {
             ),
           })}
           listeners={({ navigation, route }) => ({
-            // Onpress Update....
             tabPress: (e) => {
               Animated.spring(tabOffsetValue, {
                 toValue: getWidth() * 2,
@@ -234,7 +234,6 @@ export default function Dashobard() {
             ),
           }}
           listeners={() => ({
-            // Onpress Update....
             tabPress: (e) => {
               Animated.spring(tabOffsetValue, {
                 toValue: getWidth() * 3,
@@ -246,18 +245,19 @@ export default function Dashobard() {
 
         <Tab.Screen
           name={"Profile"}
-          component={Home}
+          component={Profile}
           options={{
             title: "Profile",
             headerStyle: {
-              height: 0,
+              height: 110,
             },
             headerTitleStyle: {
-              color: "#3D3F3F",
+              color: "#707377",
+              fontSize:14,
               textAlign: "center",
-              fontWeight: "bold",
+              fontWeight: "500",
               letterSpacing: 1,
-              left: 115,
+              left: 140,
               top: 25,
             },
             tabBarIcon: ({ focused }) => (
