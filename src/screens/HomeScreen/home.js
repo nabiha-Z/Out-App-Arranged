@@ -15,9 +15,11 @@ import TopOverlay from "../../../assets/images/rectangle-4.png";
 import BackgroundMask from "../../../assets/images/Mask-group.png";
 import OutLogo from "../../../assets/images/out-logo-dark.png";
 import HomeLogo from "../../../assets/images/home-banner-logo.png";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const windowHeight = Dimensions.get("window").height;
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -57,6 +59,7 @@ export default function Home() {
           events nearby locations now!
         </Text>
       </View>
+      
       <View style={[tw`ml-10`, { marginTop: windowHeight * 0.01 }]}>
         <TouchableOpacity
           style={[tw`rounded-full p-2 mt-9 w-72`, homeStyles.startButton]}

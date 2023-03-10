@@ -13,7 +13,6 @@ import background from "../../../assets/images/ellipse.png";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Banner({ operation, header }) {
-  // const operation = "Sign Up";
   const pageCheck = operation === "Sign Up" ? true : false;
   const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;

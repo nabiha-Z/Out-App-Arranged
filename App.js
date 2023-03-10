@@ -34,8 +34,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="HomeScreen"
-          component={Home}
+          name="LoadingScreen"
+          component={LoadingScreen}
           options={() => ({
             title: "",
             headerStyle: {
@@ -45,8 +45,8 @@ export default function App() {
           })}
         />
         <Stack.Screen
-          name="LoadingScreen"
-          component={LoadingScreen}
+          name="HomeScreen"
+          component={Home}
           options={() => ({
             title: "",
             headerStyle: {
