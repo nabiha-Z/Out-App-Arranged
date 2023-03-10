@@ -6,6 +6,7 @@ import Signup from "./src/screens/Auth/signup";
 import Signin from "./src/screens/Auth/signin";
 import Home from "./src/screens/HomeScreen/home";
 import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
+import Dashobard from "./src/screens/Dashboard/dashobard";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -70,7 +71,19 @@ export default function App() {
         <Stack.Screen
           name="SigninScreen"
           component={Signin}
-          options={({ navigation, route }) => ({
+          options={() => ({
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          })}
+        />
+
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashobard}
+          options={() => ({
             title: "",
             headerStyle: {
               height: 0,

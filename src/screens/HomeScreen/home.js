@@ -10,7 +10,6 @@ import tw from "tailwind-react-native-classnames";
 import { homeStyles } from "./homeStyles";
 
 import { Dimensions } from "react-native";
-import WhiteOverlay from "../../../assets/images/white-bg.jpeg";
 import TopOverlay from "../../../assets/images/rectangle-4.png";
 import BackgroundMask from "../../../assets/images/Mask-group.png";
 import OutLogo from "../../../assets/images/out-logo-dark.png";
@@ -59,10 +58,11 @@ export default function Home() {
           events nearby locations now!
         </Text>
       </View>
-      
+
       <View style={[tw`ml-10`, { marginTop: windowHeight * 0.01 }]}>
         <TouchableOpacity
           style={[tw`rounded-full p-2 mt-9 w-72`, homeStyles.startButton]}
+          onPress={() => navigation.navigate("Dashboard")}
         >
           <Text style={[tw`text-white text-center`]}>Get Started</Text>
         </TouchableOpacity>

@@ -29,7 +29,7 @@ export default function LoadingScreen() {
     }).start();
     setTimeout(() => {
       navigation.navigate("HomeScreen");
-    }, 6000);
+    }, 4000);
   }, []);
 
   return (
