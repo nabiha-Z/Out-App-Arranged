@@ -3,10 +3,10 @@ import { View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import tw from "tailwind-react-native-classnames";
 
-export default CustomTextInput = ({ icon, placeholder }) => (
+export default CustomTextInput = ({ icon, placeholder, width }) => (
   <View
     style={[
-      tw`flex flex-row items-center rounded-full w-52 h-10 pl-4`,
+      tw`flex flex-row items-center rounded-full w-${width} h-10 pl-4`,
       { backgroundColor: "#F6F5F5" },
     ]}
   >

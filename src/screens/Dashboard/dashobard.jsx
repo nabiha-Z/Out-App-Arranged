@@ -3,14 +3,10 @@ import { Animated } from "react-native";
 import { Dimensions, View, Text } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  Entypo,
-  Ionicons,
-  FontAwesome5,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../../components/TabNavigator/home";
 import Profile from "../../components/TabNavigator/profile";
+import Messages from "../../components/TabNavigator/messages";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
@@ -87,7 +83,6 @@ export default function Dashobard() {
             ),
           }}
           listeners={() => ({
-            // Onpress Update....
             tabPress: (e) => {
               Animated.spring(tabOffsetValue, {
                 toValue: 0,
@@ -98,17 +93,20 @@ export default function Dashobard() {
         ></Tab.Screen>
 
         <Tab.Screen
-          name={"Chat"}
-          component={Home}
+          name={"Messages"}
+          component={Messages}
           options={{
-            title: "",
+            title: "Chats list",
             headerStyle: {
-              height: 0,
+              height: 110,
             },
             headerTitleStyle: {
-              color: "black",
+              color: "#707377",
+              fontSize: 14,
               textAlign: "center",
-              left: 140,
+              fontWeight: "500",
+              letterSpacing: 1,
+              left: 130,
               top: 25,
             },
 
@@ -253,7 +251,7 @@ export default function Dashobard() {
             },
             headerTitleStyle: {
               color: "#707377",
-              fontSize:14,
+              fontSize: 14,
               textAlign: "center",
               fontWeight: "500",
               letterSpacing: 1,
