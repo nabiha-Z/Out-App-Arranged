@@ -22,7 +22,7 @@ import Slider from "../../components/Chats/slider";
 import user1 from "../../../assets/images/user-2.png";
 import user2 from "../../../assets/images/user-3.png";
 import { TextInput } from "react-native-paper";
-import CustomModal from "../../components/Modal/modal";
+import CustomModal from "../../components/Modal/Chatmodal";
 
 export default function ChatScreen({ navigation }) {
   const [open, setOpen] = useState(false);

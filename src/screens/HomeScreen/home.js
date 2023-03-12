@@ -24,7 +24,7 @@ export default function Home() {
     <View>
       <Image
         source={BackgroundMask}
-        style={(homeStyles.bgImage, StyleSheet.absoluteFill)}
+        style={(StyleSheet.absoluteFill)}
       />
 
       <View style={tw`flex items-center`}>
@@ -32,7 +32,7 @@ export default function Home() {
 
         <Image
           source={TopOverlay}
-          style={(homeStyles.bgImage, StyleSheet.absoluteFill)}
+          style={(StyleSheet.absoluteFill)}
         />
         <View style={[homeStyles.overlay, { height: windowHeight * 1.7 }]} />
 
