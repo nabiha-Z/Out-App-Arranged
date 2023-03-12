@@ -6,7 +6,7 @@ import {
   Image,
   ActivityIndicator,
 } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { homeStyles } from "./homeStyles";
 import { Dimensions } from "react-native";
 import BackgroundMask from "../../../assets/images/Mask-group.png";
@@ -29,7 +29,7 @@ export default function LoadingScreen() {
     }).start();
     setTimeout(() => {
       navigation.navigate("HomeScreen");
-    }, 6000);
+    }, 4000);
   }, []);
 
   return (

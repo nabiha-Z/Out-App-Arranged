@@ -1,11 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const homeStyles = StyleSheet.create({
-  bgImage: {
-    width: "100%",
-    height: "100%",
-  },
-
   container: {
     flex: 1,
     alignItems: "center",

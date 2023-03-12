@@ -1,5 +1,5 @@
 import { Text, View, Image, TouchableOpacity, StyleSheet } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { authStyles } from "./authStyles";
 import GoogleIcon from "../../../assets/images/search.png";
 import FacebookIcon from "../../../assets/images/facebook.png";
