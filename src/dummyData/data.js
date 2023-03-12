@@ -81,3 +81,21 @@ export const events = [
     description: "Meet & greet + drink",
   },
 ];
+
+export const myEvents = [
+  {
+    _id: 0,
+    title: "Worship Night Season 1",
+    ticket: "ticket name",
+  },
+  {
+    _id: 1,
+    title: "After Party",
+    ticket: "ticket name",
+  },
+  {
+    _id: 2,
+    title: "Evnet XYZ",
+    ticket: "ticket name",
+  },
+];

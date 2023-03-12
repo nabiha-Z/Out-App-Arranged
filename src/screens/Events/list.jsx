@@ -8,7 +8,7 @@ import { MaterialIcons, Feather } from "@expo/vector-icons";
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function MyEvents({ navigation }) {
+export default function EventsList({ navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -36,11 +36,12 @@ export default function MyEvents({ navigation }) {
         indicatorStyle: {
           marginHorizontal: "5%",
           width: "40%",
+          fontSize:40
         },
       }}
     >
-      <Tab.Screen name="Created by me" component={SelfEvents} />
-      <Tab.Screen name="Participating" component={ParticipatingEvents} />
+      <Tab.Screen name="Shared with you" component={SelfEvents} />
+      <Tab.Screen name="Saved" component={ParticipatingEvents} />
     </Tab.Navigator>
   );
 }
