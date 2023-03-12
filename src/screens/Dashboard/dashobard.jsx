@@ -7,6 +7,7 @@ import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../../components/TabNavigator/home";
 import Profile from "../../components/TabNavigator/profile";
 import Messages from "../../components/TabNavigator/messages";
+import MyTickets from "../../components/TabNavigator/tickets";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
@@ -191,20 +192,22 @@ export default function Dashobard() {
 
         <Tab.Screen
           name={"Ticket"}
-          component={Home}
+          component={MyTickets}
           options={{
-            title: "Tickets",
+            title: "My Tickets",
             headerStyle: {
-              height: 0,
+              height: 110,
             },
             headerTitleStyle: {
-              color: "black",
+              color: "#707377",
+              fontSize: 17,
               textAlign: "center",
-              fontWeight: "bold",
+              fontWeight: "500",
               letterSpacing: 1,
-              left: 115,
+              left: 122,
               top: 25,
             },
+            headerLeft: null,
             tabBarIcon: ({ focused }) => (
               <View
                 style={[
@@ -251,7 +254,7 @@ export default function Dashobard() {
             },
             headerTitleStyle: {
               color: "#707377",
-              fontSize: 14,
+              fontSize: 17,
               textAlign: "center",
               fontWeight: "500",
               letterSpacing: 1,

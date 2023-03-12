@@ -8,6 +8,7 @@ import Home from "./src/screens/HomeScreen/home";
 import ChatScreen from "./src/screens/Chat/chatScreen";
 import Dashobard from "./src/screens/Dashboard/dashobard";
 import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
+import MyTickets from "./src/components/TabNavigator/tickets";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -109,6 +110,24 @@ export default function App() {
             },
           })}
         />
+        {/* <Stack.Screen
+          name="MyTickets"
+          component={MyTickets}
+          options={({ navigation }) => ({
+            title: "My Tickets",
+            headerStyle: {
+              backgroundColor: "#FBFDFE",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 50,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
