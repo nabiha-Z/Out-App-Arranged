@@ -1,6 +1,6 @@
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity, View, Image, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Buttons({ title, pageRedirect, icon }) {
@@ -12,9 +12,7 @@ export default function Buttons({ title, pageRedirect, icon }) {
     >
       <Ionicons name={icon} size={16} color="#185C7E" />
       <View style={tw`w-40`}>
-        <Text style={[tw`text-xs font-light mx-3`, { color: "#185C7E" }]}>
-          {title}
-        </Text>
+        <Text style={tw`text-xs font-light mx-3 text-[#185C7E]`}>{title}</Text>
       </View>
 
       <View style={tw`flex items-end w-32`}>

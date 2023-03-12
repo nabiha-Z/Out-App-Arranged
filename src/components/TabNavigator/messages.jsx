@@ -1,5 +1,5 @@
 import { View, ScrollView } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { messages } from "../../dummyData/data";
 import SearchHeader from "../Header/searchHeader";
 import ChatList from "../Chats/chatList";

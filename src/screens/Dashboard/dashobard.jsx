@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Animated } from "react-native";
 import { Dimensions, View, Text } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../../components/TabNavigator/home";

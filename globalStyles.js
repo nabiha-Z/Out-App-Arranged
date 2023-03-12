@@ -11,12 +11,38 @@ export const globalStyles = StyleSheet.create({
   },
 
   shadow: {
-    elevation: 6, // adds shadow on Android
-    shadowColor: "#4E5051", // adds shadow on iOS
+    elevation: 6,
+    shadowColor: "#4E5051",
     shadowOffset: { width: 3, height: 7 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
     shadowSpread: 5,
   },
-  endAlign: {},
+  centeredView: {
+    backgroundColor: "rgba(0,0,0,0.4)",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    width: "80%",
+    height: "50%",
+    backgroundColor: "white",
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+  buttonContainer: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+  },
 });

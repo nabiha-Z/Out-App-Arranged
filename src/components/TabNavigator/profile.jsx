@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";

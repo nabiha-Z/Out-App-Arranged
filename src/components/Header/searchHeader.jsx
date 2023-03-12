@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput, View } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { Feather } from "@expo/vector-icons";
 import CustomTextInput from "../../components/InputField/searchField";
 

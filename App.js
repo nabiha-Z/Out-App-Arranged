@@ -8,7 +8,6 @@ import Home from "./src/screens/HomeScreen/home";
 import ChatScreen from "./src/screens/Chat/chatScreen";
 import Dashobard from "./src/screens/Dashboard/dashobard";
 import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
-import Styles from "./src/styles.js";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),

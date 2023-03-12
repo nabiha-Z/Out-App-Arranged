@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 
 export default CustomTextInput = ({ icon, placeholder, width }) => (
   <View

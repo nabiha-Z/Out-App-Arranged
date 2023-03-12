@@ -6,7 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { homeStyles } from "./homeStyles";
 
 import { Dimensions } from "react-native";

@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import SearchHeader from "../Header/searchHeader";
 
 export default function Home() {

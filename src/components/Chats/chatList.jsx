@@ -1,4 +1,4 @@
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import seenVector from "../../../assets/images/message-seen-vector.png";
 import { useNavigation } from "@react-navigation/native";
