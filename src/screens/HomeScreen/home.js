@@ -22,18 +22,12 @@ export default function Home() {
 
   return (
     <View>
-      <Image
-        source={BackgroundMask}
-        style={(StyleSheet.absoluteFill)}
-      />
+      <Image source={BackgroundMask} style={StyleSheet.absoluteFill} />
 
       <View style={tw`flex items-center`}>
         <Text style={tw`text-red-800 text-xl`}>Welcome to OUT App!</Text>
 
-        <Image
-          source={TopOverlay}
-          style={(StyleSheet.absoluteFill)}
-        />
+        <Image source={TopOverlay} style={StyleSheet.absoluteFill} />
         <View style={[homeStyles.overlay, { height: windowHeight * 1.7 }]} />
 
         <View

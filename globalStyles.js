@@ -11,12 +11,22 @@ export const globalStyles = StyleSheet.create({
   },
 
   shadow: {
-    elevation: 6,
-    shadowColor: "#4E5051",
-    shadowOffset: { width: 3, height: 7 },
+    elevation: 7,
+    shadowColor: "#3C3D3E",
+    shadowOffset: { width: 40, height: 27 },
     shadowOpacity: 0.8,
-    shadowRadius: 3,
-    shadowSpread: 5,
+    shadowRadius: 10,
+    shadowSpread: 50,
+  },
+  highlightedShadow: {
+    shadowColor: "#1180B9",
+    shadowOffset: {
+      width: 10,
+      height: 10,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 40,
+    elevation: 5, // This is required for Android
   },
   centeredView: {
     backgroundColor: "rgba(0,0,0,0.4)",

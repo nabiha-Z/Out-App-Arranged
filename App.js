@@ -11,6 +11,7 @@ import Dashobard from "./src/screens/Dashboard/dashobard";
 import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
 import MyEvents from "./src/screens/Events/myEvents";
 import EventsList from "./src/screens/Events/list";
+import Event from "./src/screens/Events/event";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -146,6 +147,17 @@ export default function App() {
               textAlign: "center",
               fontWeight: "500",
               letterSpacing: 1,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Event"
+          component={Event}
+          options={({ navigation }) => ({
+            title: "",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
             },
           })}
         />
