@@ -8,14 +8,13 @@ export default function MyTickets() {
 
   return (
     <View style={tw`items-center justify-center bg-white pt-2`}>
+      <Text style={tw`text-zinc-400 font-medium text-center mb-3`}>
+        To scan your ticket, slide left and click the QR
+      </Text>
       <ScrollView style={[{ height: windowHeight * 0.9 }]}>
-        <Text style={tw`text-zinc-400 font-medium text-center`}>
-          To scan your ticket, slide left
-        </Text>
-
         <View style={tw`p-4 px-0 pb-32`}>
           {events.map((item) => (
-            <SwipeableTicket item={item} />
+            <SwipeableTicket item={item} key={item._id} />
           ))}
         </View>
       </ScrollView>

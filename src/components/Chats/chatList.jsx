@@ -1,7 +1,7 @@
 import tw from "twrnc";
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import seenVector from "../../../assets/images/message-seen-vector.png";
-import { useNavigation } from "@react-navigation/native";
 
 export default function ChatList({ image, username, last_message, time }) {
   const navigation = useNavigation();

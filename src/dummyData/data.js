@@ -51,39 +51,51 @@ export const events = [
     description: "Meet & greet + drink",
   },
   {
-    _id: 2,
+    _id: 20,
     name: "Event Name",
     priority: "VVIP",
     description: "Meet & greet + drink",
   },
   {
-    _id: 2,
+    _id: 22,
     name: "Event Name",
     priority: "VVIP",
     description: "Meet & greet + drink",
   },
   {
-    _id: 2,
+    _id: 24,
     name: "Event Name",
     priority: "VVIP",
     description: "Meet & greet + drink",
   },
   {
-    _id: 2,
+    _id: 25,
     name: "Event Name",
     priority: "VVIP",
     description: "Meet & greet + drink",
   },
   {
-    _id: 2,
+    _id: 26,
     name: "Event Name",
     priority: "VVIP",
     description: "Meet & greet + drink",
   },
+];
+
+export const myEvents = [
+  {
+    _id: 0,
+    title: "Worship Night Season 1",
+    ticket: "ticket name",
+  },
+  {
+    _id: 1,
+    title: "After Party",
+    ticket: "ticket name",
+  },
   {
     _id: 2,
-    name: "Event Name",
-    priority: "VVIP",
-    description: "Meet & greet + drink",
+    title: "Evnet XYZ",
+    ticket: "ticket name",
   },
 ];

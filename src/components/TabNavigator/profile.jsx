@@ -59,6 +59,7 @@ export default function Profile() {
         <View style={tw`m-10`}>
           <Buttons title="Payment Information" icon="wallet" pageRedirect="" />
           <Buttons title="Setting" icon="settings-sharp" pageRedirect="" />
+          <Buttons title="Events" icon="settings-sharp" pageRedirect="EventList" />
           <Buttons
             title="About"
             icon="information-circle-sharp"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import tw from "twrnc";
 import * as Font from "expo-font";
 import Signup from "./src/screens/Auth/signup";
 import Signin from "./src/screens/Auth/signin";
@@ -8,7 +9,9 @@ import Home from "./src/screens/HomeScreen/home";
 import ChatScreen from "./src/screens/Chat/chatScreen";
 import Dashobard from "./src/screens/Dashboard/dashobard";
 import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
-import MyTickets from "./src/components/TabNavigator/tickets";
+import MyEvents from "./src/screens/Events/myEvents";
+import EventsList from "./src/screens/Events/list";
+import Event from "./src/screens/Events/event";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -110,24 +113,54 @@ export default function App() {
             },
           })}
         />
-        {/* <Stack.Screen
-          name="MyTickets"
-          component={MyTickets}
+
+        <Stack.Screen
+          name="EventList"
+          component={EventsList}
           options={({ navigation }) => ({
-            title: "My Tickets",
+            title: "Event Lists",
             headerStyle: {
-              backgroundColor: "#FBFDFE",
+              backgroundColor: "white",
               height: 110,
             },
             headerTitleStyle: {
-              marginLeft: 50,
+              marginLeft: 10,
               fontSize: 18,
               textAlign: "center",
               fontWeight: "500",
               letterSpacing: 1,
             },
           })}
-        /> */}
+        />
+        <Stack.Screen
+          name="MyEvents"
+          component={MyEvents}
+          options={({ navigation }) => ({
+            title: "My events",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 10,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Event"
+          component={Event}
+          options={({ navigation }) => ({
+            title: "",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
+            },
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

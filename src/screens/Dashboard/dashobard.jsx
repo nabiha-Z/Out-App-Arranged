@@ -8,6 +8,7 @@ import Home from "../../components/TabNavigator/home";
 import Profile from "../../components/TabNavigator/profile";
 import Messages from "../../components/TabNavigator/messages";
 import MyTickets from "../../components/TabNavigator/tickets";
+import EventQRModal from "../../components/Modal/QRmodal";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
