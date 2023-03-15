@@ -12,6 +12,7 @@ import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
 import MyEvents from "./src/screens/Events/myEvents";
 import EventsList from "./src/screens/Events/list";
 import Event from "./src/screens/Events/event";
+import Choices from "./src/screens/Chat/choices";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -106,6 +107,25 @@ export default function App() {
             },
             headerTitleStyle: {
               marginLeft: 50,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        />
+
+        <Stack.Screen
+          name="Choices"
+          component={Choices}
+          options={({ navigation }) => ({
+            title: "Multiple Choices",
+            headerStyle: {
+              backgroundColor: "#F1F3F5",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 25,
               fontSize: 18,
               textAlign: "center",
               fontWeight: "500",

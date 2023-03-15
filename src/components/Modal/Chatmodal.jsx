@@ -2,8 +2,10 @@ import { View, Modal, TouchableOpacity, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import tw from "twrnc";
 import { globalStyles } from "../../../globalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CustomModal({ open, setOpen }) {
+  const navigation = useNavigation();
   return (
     <View style={globalStyles.centeredView}>
       <Modal
@@ -32,6 +34,7 @@ export default function CustomModal({ open, setOpen }) {
               </Text>
               <TouchableOpacity
                 style={tw`bg-white rounded-full border p-3 border-[#013B4F] mb-4`}
+                onPress={() => navigation.navigate("Choices")}
               >
                 <Text style={tw`text-[#013B4F] font-bold text-center`}>
                   Multiple Choices
