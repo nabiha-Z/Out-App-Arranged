@@ -23,33 +23,16 @@ import user1 from "../../../assets/images/user-2.png";
 import user2 from "../../../assets/images/user-3.png";
 import ChatFooter from "../../components/Chats/footer";
 import CustomModal from "../../components/Modal/Chatmodal";
+import TopHeader from "../../components/Navigation/topHeader";
 
 export default function ChatScreen({ navigation }) {
   const [open, setOpen] = useState(false);
   const windowHeight = Dimensions.get("window").height;
 
   useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <View style={tw`mx-5`}>
-            <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
-          </View>
-        </TouchableOpacity>
-      ),
-      headerRight: () => (
-        <TouchableOpacity onPress={() => setOpen(!open)}>
-          <View style={{ marginRight: 15 }}>
-            <MaterialCommunityIcons
-              name="dots-horizontal"
-              size={24}
-              color="black"
-            />
-          </View>
-        </TouchableOpacity>
-      ),
-    });
+    TopHeader({ navigation, setOpen, open });
   }, []);
+
   return (
     <View>
       <Image

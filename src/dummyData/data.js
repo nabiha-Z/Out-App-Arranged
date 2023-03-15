@@ -1,4 +1,6 @@
 import userProfile from "../../assets/images/user-1.png";
+import Boolean from "../components/Subjects/boolean";
+import Choices from "../components/Subjects/choices";
 
 export const messages = [
   {
@@ -99,3 +101,18 @@ export const myEvents = [
     ticket: "ticket name",
   },
 ];
+
+export const tabsData = {
+  all: {
+    data: <Choices />,
+  },
+  choices: {
+    data: <Choices />,
+  },
+  yesNo: {
+    data: <Boolean />,
+  },
+  tasks: {
+    data: "Tasks",
+  },
+};

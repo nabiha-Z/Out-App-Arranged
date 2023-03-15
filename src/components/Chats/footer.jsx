@@ -1,4 +1,4 @@
-import tw from "twrnc";
+import tw, { create } from "twrnc";
 import { View, TextInput, TouchableOpacity, Dimensions } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../../globalStyles";

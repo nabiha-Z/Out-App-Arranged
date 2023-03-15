@@ -42,6 +42,7 @@ export default function CustomModal({ open, setOpen }) {
               </TouchableOpacity>
               <TouchableOpacity
                 style={tw`bg-[#013B4F] rounded-full border p-3 border-[#013B4F] mb-4`}
+                onPress={() => navigation.navigate("Subjects")}
               >
                 <Text style={tw`text-white font-bold text-center`}>
                   Yes and No

@@ -15,7 +15,6 @@ import {
 import ChatFooter from "../../components/Chats/footer";
 
 export default function Choices({ navigation }) {
-  const windowHeight = Dimensions.get("window").height;
 
   useLayoutEffect(() => {
     navigation.setOptions({
