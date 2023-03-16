@@ -14,6 +14,7 @@ import EventsList from "./src/screens/Events/list";
 import Event from "./src/screens/Events/event";
 import Choices from "./src/screens/Chat/choices";
 import Subjects from "./src/screens/Subjects/subjects";
+import Checkout from "./src/screens/Checkout/checkout";
 
 const customFonts = {
   "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -41,6 +42,24 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Checkout"
+          component={Checkout}
+          options={({ navigation }) => ({
+            title: "Checkout",
+            headerStyle: {
+              backgroundColor: "#F8FAFB",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 65,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        />
         <Stack.Screen
           name="Dashboard"
           component={Dashobard}

@@ -35,7 +35,6 @@ export default function Subjects({ navigation }) {
   }, []);
 
   const Tabs = ({ item }) => {
-    console.log("itemhjhj: ", item.title);
     return (
       <TouchableOpacity
         style={[
