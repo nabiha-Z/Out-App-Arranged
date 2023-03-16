@@ -44,6 +44,17 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Event"
+          component={Event}
+          options={({ navigation }) => ({
+            title: "",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
+            },
+          })}
+        />
+        <Stack.Screen
           name="Cart"
           component={Cart}
           options={({ navigation }) => ({
@@ -188,17 +199,6 @@ export default function App() {
               textAlign: "center",
               fontWeight: "500",
               letterSpacing: 1,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Event"
-          component={Event}
-          options={({ navigation }) => ({
-            title: "",
-            headerStyle: {
-              backgroundColor: "white",
-              height: 110,
             },
           })}
         />

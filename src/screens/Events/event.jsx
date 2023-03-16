@@ -17,11 +17,14 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import { globalStyles } from "../../../globalStyles";
-import backgroundImage from "../../../assets/images/banner.png";
-import overlay from "../../../assets/images/rectangle-9.png";
 import profile from "../../../assets/images/profile.png";
+import overlay from "../../../assets/images/rectangle-9.png";
+import backgroundImage from "../../../assets/images/banner.png";
+import ShareModal from "../../components/Modal/Sharemodal";
+import LeftHeader from "../../components/Navigation/leftHeader";
 
 export default function Event({ navigation }) {
+  const [open, setOpen] = useState(false);
   const [user, setUser] = useState(false);
   const event = {
     name: "Event Name",
@@ -32,19 +35,8 @@ export default function Event({ navigation }) {
   const windowHeight = Dimensions.get("window").height;
 
   useLayoutEffect(() => {
+    LeftHeader({ navigation });
     navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <View style={tw`ml-5`}>
-            <MaterialIcons
-              name="keyboard-arrow-left"
-              size={24}
-              color="black"
-              onPress={() => navigation.pop()}
-            />
-          </View>
-        </TouchableOpacity>
-      ),
       headerRight: () => (
         <TouchableOpacity>
           <View style={tw`mr-8`}>
@@ -119,7 +111,9 @@ export default function Event({ navigation }) {
                 Address Information
               </Text>
             </View>
-            <Entypo name="forward" size={24} color="#1180B9" />
+            <TouchableOpacity onPress={() => setOpen(!open)}>
+              <Entypo name="forward" size={24} color="#1180B9" />
+            </TouchableOpacity>
           </View>
           <View style={tw`flex flex-row mt-3 w-60 items-center`}>
             <MaterialIcons name="location-on" size={24} color="#1180B9" />
@@ -156,6 +150,8 @@ export default function Event({ navigation }) {
       >
         <Text style={tw`text-white font-bold text-lg`}>RSVP</Text>
       </TouchableOpacity>
+
+      <ShareModal open={open} setOpen={setOpen} />
     </View>
   );
 }

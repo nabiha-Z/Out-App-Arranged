@@ -7,7 +7,7 @@ import {
   Dimensions,
   ScrollView,
 } from "react-native";
-import RightHeader from "../../components/Navigation/rightHeader";
+import LeftHeader from "../../components/Navigation/leftHeader";
 import ticket1 from "../../../assets/images/ticket-1.png";
 import ticket2 from "../../../assets/images/ticket-2.png";
 import ticket3 from "../../../assets/images/ticket-3.png";
@@ -19,7 +19,7 @@ export default function Cart({ navigation }) {
   const tickets = [ticket1, ticket2, ticket3];
 
   useLayoutEffect(() => {
-    RightHeader({ navigation });
+    LeftHeader({ navigation });
   }, []);
 
   return (

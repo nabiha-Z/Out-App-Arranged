@@ -34,6 +34,12 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  lowerView: {
+    backgroundColor: "rgba(0,0,0,0.4)",
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
   modalView: {
     width: "80%",
     height: "50%",
@@ -41,6 +47,20 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
     shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  shareModalView: {
+    width: "100%",
+    height: "75%",
+    backgroundColor: "white",
+    padding: 0,
+    shadowColor: "black",
     shadowOffset: {
       width: 0,
       height: 2,

@@ -4,13 +4,13 @@ import PaymentProgressBar from "../../components/ProgressBar/paymentProgressBar"
 import ellipse1 from "../../../assets/images/ellipse-3.png";
 import { AntDesign } from "@expo/vector-icons";
 import { useLayoutEffect } from "react";
-import RightHeader from "../../components/Navigation/rightHeader";
+import LeftHeader from "../../components/Navigation/leftHeader";
 
 export default function Checkout({ navigation }) {
   useLayoutEffect(() => {
-    RightHeader({ navigation });
+    LeftHeader({ navigation });
   }, []);
-  
+
   return (
     <ScrollView style={tw`bg-[#F8FAFB] p-5`}>
       <Text style={tw`font-bold`}>Payment Pogress</Text>
