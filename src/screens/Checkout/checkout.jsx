@@ -2,22 +2,15 @@ import { View, TouchableOpacity, Text, Image, ScrollView } from "react-native";
 import tw from "twrnc";
 import PaymentProgressBar from "../../components/ProgressBar/paymentProgressBar";
 import ellipse1 from "../../../assets/images/ellipse-3.png";
-import checkMark from "../../../assets/images/vector-10.jpg";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { useLayoutEffect } from "react";
+import RightHeader from "../../components/Navigation/rightHeader";
 
 export default function Checkout({ navigation }) {
   useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <View style={tw`mx-5`}>
-            <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
-          </View>
-        </TouchableOpacity>
-      ),
-    });
+    RightHeader({ navigation });
   }, []);
+  
   return (
     <ScrollView style={tw`bg-[#F8FAFB] p-5`}>
       <Text style={tw`font-bold`}>Payment Pogress</Text>

@@ -55,4 +55,8 @@ export const globalStyles = StyleSheet.create({
     top: 10,
     right: 10,
   },
+
+  rotate: {
+    transform: [{ rotate: "90deg" }],
+  },
 });

@@ -1,15 +1,20 @@
 import tw from "twrnc";
 import { useState } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import qrcode from "../../../assets/images/qr-code.png";
 import EventQRModal from "../Modal/QRmodal";
+import rectangle3 from "../../../assets/images/event-rectangle-3.png";
+import rectangle2 from "../../../assets/images/event-rectangle-2.png";
+import rectangle1 from "../../../assets/images/event-rectangle-1.png";
+import { globalStyles } from "../../../globalStyles";
 
 export default function SwipeableTicket({ item }) {
   const [open, setOpen] = useState(false);
 
   const { name, priority, description } = item;
-  const rectangles = ["#1180B9", "#036182", "#013B4F"];
+  const windowWidth = Dimensions.get("window").width;
+  const rectangles = [rectangle1, rectangle2, rectangle3];
 
   const rightSwipe = () => {
     return (
@@ -25,28 +30,24 @@ export default function SwipeableTicket({ item }) {
     <>
       <Swipeable renderRightActions={rightSwipe}>
         <View
-          style={tw`flex flex-row w-full items-center justify-center p-9 my-4 px-[2rem]`}
+          style={tw`flex w-[${
+            windowWidth / 4
+          }] items-center justify-center my-4 px-3`}
         >
-          <View
-            style={tw`w-6 h-12 bg-white ml-[0rem] z-20 rounded-r-full`}
-          ></View>
-          <View
-            style={tw`w-78 h-28 rounded absolute bg-[${
-              rectangles[Math.floor(Math.random() * 3) + 0]
-            }] ml-6`}
-          ></View>
-          <View style={tw`absolute`}>
-            <Text style={tw`text-stone-300 text-xs ml-[-5rem]`}>
-              {priority}
-            </Text>
-            <Text style={tw`text-white font-bold text-lg  ml-[-5rem]`}>
-              {name}
-            </Text>
-            <Text style={tw`text-stone-300 ml-[-5rem]`}>{description}</Text>
+          <Image
+            source={rectangles[Math.floor(Math.random() * 3) + 0]}
+            style={tw`w-full h-30`}
+          />
+          <View style={tw`flex flex-row absolute`}>
+            <View style={tw`w-32 ml-[3rem]`}>
+              <Text style={tw`text-stone-300 text-xs`}>{priority}</Text>
+              <Text style={tw`text-white font-bold text-lg `}>{name}</Text>
+              <Text style={tw`text-stone-300 `}>{description}</Text>
+            </View>
+            <View style={[tw`mr-[1rem]`, globalStyles.rotate]}>
+              <Text style={tw`text-white`}>..............................</Text>
+            </View>
           </View>
-          <View
-            style={tw`w-6 h-12 bg-white ml-[17rem] z-20 rounded-l-full`}
-          ></View>
         </View>
         <View
           style={tw`text-center justify-center self-center w-68 border-b border-[#D2D2D2]`}
