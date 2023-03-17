@@ -43,6 +43,7 @@ export default function Checkout({ navigation }) {
 
       <TouchableOpacity
         style={tw`w-70 h-12 rounded-full justify-center self-center items-center bg-[#117DB4]`}
+        onPress={() => navigation.navigate("Dashboard")}
       >
         <Text style={tw`text-white font-bold`}>Return Home</Text>
       </TouchableOpacity>

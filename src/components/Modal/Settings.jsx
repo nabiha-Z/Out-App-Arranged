@@ -1,8 +1,13 @@
 import tw from "twrnc";
 import { useState } from "react";
-import { View, TouchableOpacity, Text, Modal, Switch } from "react-native";
-import DropDownPicker from "react-native-dropdown-picker";
-
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Modal,
+  Switch,
+  TextInput,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
 import { globalStyles } from "../../../globalStyles";
 import {
@@ -11,8 +16,10 @@ import {
   Ionicons,
   Entypo,
 } from "@expo/vector-icons";
+import CohostModal from "./CohostModal";
 
 export default function Settings({ open, setOpen }) {
+  const [addCohost, setCohost] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -64,6 +71,7 @@ export default function Settings({ open, setOpen }) {
 
                 <TouchableOpacity
                   style={tw`flex flex-row justify-between p-1 pb-5  mb-6 border-b border-[#CCCCCC]`}
+                  onPress={() => setCohost(!addCohost)}
                 >
                   <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
                     Add a Co-host
@@ -76,7 +84,7 @@ export default function Settings({ open, setOpen }) {
                   onPress={() => setDropdown(!dropdown)}
                 >
                   <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
-                    Add a Co-host
+                    Number of tickets sold
                   </Text>
                   {dropdown ? (
                     <Entypo
@@ -105,7 +113,7 @@ export default function Settings({ open, setOpen }) {
                     </Text>
                     <Text
                       style={[
-                        tw`text-[9px] text-#86868`,
+                        tw`text-[9px] text-[#86868]`,
                         globalStyles.poppinsFont,
                       ]}
                     >
@@ -124,7 +132,7 @@ export default function Settings({ open, setOpen }) {
                     </Text>
                     <Text
                       style={[
-                        tw`text-[9px] text-#86868`,
+                        tw`text-[9px] text-[#86868]`,
                         globalStyles.poppinsFont,
                       ]}
                     >
@@ -134,7 +142,9 @@ export default function Settings({ open, setOpen }) {
                 </View>
 
                 <View style={tw`flex flex-row justify-between p-1 pb-5`}>
-                  <Text style={[tw`text-[#1180B9] mt-3`, globalStyles.poppinsFont]}>
+                  <Text
+                    style={[tw`text-[#1180B9] mt-3`, globalStyles.poppinsFont]}
+                  >
                     Public Chat
                   </Text>
                   <Switch
@@ -150,6 +160,8 @@ export default function Settings({ open, setOpen }) {
           </Animatable.View>
         </View>
       </Modal>
+
+      <CohostModal open={addCohost} setOpen={setCohost} />
     </View>
   );
 }

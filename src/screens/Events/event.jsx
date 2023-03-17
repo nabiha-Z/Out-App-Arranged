@@ -22,18 +22,24 @@ import profile from "../../../assets/images/profile.png";
 import overlay from "../../../assets/images/rectangle-9.png";
 import backgroundImage from "../../../assets/images/banner.png";
 import LeftHeader from "../../components/Navigation/leftHeader";
+import EventTicket from "../../components/Ticket/eventTicket";
+import ticket1 from "../../../assets/images/ticket-1.png";
+import ticket2 from "../../../assets/images/ticket-2.png";
+import ticket3 from "../../../assets/images/ticket-3.png";
+import cartIcon from "../../../assets/images/cart-icon.png";
+import { events } from "../../dummyData/data";
 
 export default function Event({ navigation }) {
   const [open, setOpen] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const event = {
     name: "Event Name",
     location: "Savanorių pr. 16, LT-03116, Vilniaus m. sav.",
     time: "Sunday - 11h AM",
     info: "At nunc si ad aliquem bene nummatum em ue ideo honestus advenAt nunc",
   };
-
+  const tickets = [ticket1, ticket2, ticket3];
   const windowHeight = Dimensions.get("window").height;
 
   useLayoutEffect(() => {
@@ -75,7 +81,7 @@ export default function Event({ navigation }) {
       <Image source={overlay} style={StyleSheet.absoluteFill} />
       <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-6`}>
         <View
-          style={tw`flex flex-row w-full justify-between items-center mb-4 mt-16`}
+          style={tw`flex flex-row w-full justify-between items-center mb-6 mt-16`}
         >
           <View style={tw`p-2`}>
             {user && (
@@ -161,10 +167,7 @@ export default function Event({ navigation }) {
         </View>
 
         <View
-          style={[
-            tw`bg-white p-5 rounded-2xl mt-4 mb-20 w-76`,
-            globalStyles.shadow,
-          ]}
+          style={[tw`bg-white p-5 rounded-2xl mt-4 w-76`, globalStyles.shadow]}
         >
           <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
             Additional Information
@@ -173,13 +176,22 @@ export default function Event({ navigation }) {
             {event.info}
           </Text>
         </View>
+
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={tw`py-15 flex justify-between items-center `}
+        >
+          {events.map((item) => (
+            <EventTicket item={item} tickets={tickets} marginRight="7" />
+          ))}
+        </ScrollView>
       </ScrollView>
       <TouchableOpacity
-        style={tw`w-76 justify-center items-center self-center p-3 bg-[#013B4F] rounded-full m-4`}
+        style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] rounded-full m-4 mt-2`}
+        onPress={() => navigation.navigate("Cart")}
       >
-        <Text style={[tw`text-white text-lg`, globalStyles.poppinsFontBold]}>
-          RSVP
-        </Text>
+        <Image source={cartIcon} />
       </TouchableOpacity>
 
       <ShareModal open={open} setOpen={setOpen} />
