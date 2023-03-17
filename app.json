@@ -12,8 +12,13 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "OutAppArranged.F1703"
     },
-    "web": {
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "1db4e00d-c066-4b45-af86-cdf08bb528ad"
+      }
     }
   }
 }
