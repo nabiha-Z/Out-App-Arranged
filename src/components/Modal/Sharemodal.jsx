@@ -1,19 +1,12 @@
 import tw from "twrnc";
-import * as Animatable from "react-native-animatable";
 import { useState } from "react";
-import {
-  View,
-  Modal,
-  TouchableOpacity,
-  Text,
-  Image,
-  Dimensions,
-} from "react-native";
+import * as Animatable from "react-native-animatable";
+import { View, Modal, TouchableOpacity, Text, Dimensions } from "react-native";
 import { Checkbox } from "react-native-paper";
-import { globalStyles } from "../../../globalStyles";
-import { EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
-import CustomTextInput from "../InputField/searchField";
 import { ScrollView } from "react-native-gesture-handler";
+import { EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
+import { globalStyles } from "../../../globalStyles";
+import CustomTextInput from "../InputField/searchField";
 import FriendCheckbox from "../Checkbox/checkbox";
 
 export default function Sharemodal({ open, setOpen }) {

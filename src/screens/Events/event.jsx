@@ -16,15 +16,17 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import { globalStyles } from "../../../globalStyles";
+import ShareModal from "../../components/Modal/Sharemodal";
+import SettingsModal from "../../components/Modal/Settings";
 import profile from "../../../assets/images/profile.png";
 import overlay from "../../../assets/images/rectangle-9.png";
 import backgroundImage from "../../../assets/images/banner.png";
-import ShareModal from "../../components/Modal/Sharemodal";
 import LeftHeader from "../../components/Navigation/leftHeader";
 
 export default function Event({ navigation }) {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState(true);
+  const [showSetting, setShowSetting] = useState(false);
+  const [user, setUser] = useState(false);
   const event = {
     name: "Event Name",
     location: "Savanorių pr. 16, LT-03116, Vilniaus m. sav.",
@@ -38,27 +40,28 @@ export default function Event({ navigation }) {
     LeftHeader({ navigation });
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity>
-          <View style={tw`mr-8`}>
-            {user ? (
-              <>
+        <TouchableOpacity
+          style={tw`mr-8`}
+          onPress={() => setShowSetting(!showSetting)}
+        >
+          {user ? (
+            <>
+              <View
+                style={tw`flex self-end absolute z-10 bg-white w-[10px] h-[10px] items-center justify-center rounded-full`}
+              >
                 <View
-                  style={tw`flex self-end absolute z-10 bg-white w-[10px] h-[10px] items-center justify-center rounded-full`}
-                >
-                  <View
-                    style={tw`flex self-end absolute z-10 bg-red-500 w-2 h-2 rounded-full`}
-                  ></View>
-                </View>
-                <MaterialCommunityIcons name="cart" size={24} color="#B1B1B1" />
-              </>
-            ) : (
-              <MaterialCommunityIcons
-                name="dots-horizontal"
-                size={24}
-                color="black"
-              />
-            )}
-          </View>
+                  style={tw`flex self-end absolute z-10 bg-red-500 w-2 h-2 rounded-full`}
+                ></View>
+              </View>
+              <MaterialCommunityIcons name="cart" size={24} color="#B1B1B1" />
+            </>
+          ) : (
+            <MaterialCommunityIcons
+              name="dots-horizontal"
+              size={24}
+              color="black"
+            />
+          )}
         </TouchableOpacity>
       ),
     });
@@ -180,6 +183,7 @@ export default function Event({ navigation }) {
       </TouchableOpacity>
 
       <ShareModal open={open} setOpen={setOpen} />
+      <SettingsModal open={showSetting} setOpen={setShowSetting} />
     </View>
   );
 }
