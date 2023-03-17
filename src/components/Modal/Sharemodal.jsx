@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import * as Animatable from "react-native-animatable";
-import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
   View,
   Modal,
@@ -9,7 +9,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import { CheckBox } from "react-native-elements";
+import { Checkbox } from "react-native-paper";
 import { globalStyles } from "../../../globalStyles";
 import { EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import CustomTextInput from "../InputField/searchField";
@@ -17,6 +17,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import FriendCheckbox from "../Checkbox/checkbox";
 
 export default function Sharemodal({ open, setOpen }) {
+  const [checked, setChecked] = useState(false);
+
   const friends = ["Peter", "John", "John", "Peter", "John"];
   const windowHeight = Dimensions.get("window").height;
 
@@ -27,20 +29,28 @@ export default function Sharemodal({ open, setOpen }) {
           <Animatable.View
             animation="fadeInUpBig"
             duration={1200}
-            style={[tw`rounded-t-2xl`,globalStyles.shareModalView]}
+            style={[tw`rounded-t-2xl`, globalStyles.shareModalView]}
           >
             <View
               style={tw`flex flex-row justify-between items-center p-6 px-10 border-b border-[#EDEDED]`}
             >
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-[#5B5B5B] mr-1 font-bold`}>Copy Link</Text>
+              <TouchableOpacity style={tw`flex flex-row`}>
+                <Text
+                  style={[tw`text-[#5B5B5B] mr-1`, globalStyles.poppinsFont]}
+                >
+                  Copy Link
+                </Text>
                 <EvilIcons name="paperclip" size={24} color="#1180B9" />
-              </View>
+              </TouchableOpacity>
 
-              <View style={tw`flex flex-row`}>
-                <Text style={tw`text-[#5B5B5B] mr-2 font-bold`}>Save</Text>
+              <TouchableOpacity style={tw`flex flex-row`}>
+                <Text
+                  style={[tw`text-[#5B5B5B] mr-2`, globalStyles.poppinsFont]}
+                >
+                  Save
+                </Text>
                 <AntDesign name="download" size={16} color="#1180B9" />
-              </View>
+              </TouchableOpacity>
             </View>
 
             <View
@@ -52,19 +62,22 @@ export default function Sharemodal({ open, setOpen }) {
                 width="44"
               />
 
-              <Text style={tw`ml-4 font-semibold`}>Select All</Text>
-              <CheckBox
-                checked={false}
+              <Text style={[tw`ml-4 font-semibold`, globalStyles.poppinsFont]}>
+                Select All
+              </Text>
+              <Checkbox
+                status={checked ? "checked" : "unchecked"}
                 disabled={false}
                 onAnimationType="fill"
                 offAnimationType="fade"
-                boxType="square"
+                color="#1180B9"
+                onPress={() => setChecked(!checked)}
               />
             </View>
             <ScrollView style={tw`h-${windowHeight * 0.2} px-5 `}>
               <View>
                 {friends.map((item) => (
-                  <FriendCheckbox item={item} />
+                  <FriendCheckbox item={item} select={checked} />
                 ))}
               </View>
 

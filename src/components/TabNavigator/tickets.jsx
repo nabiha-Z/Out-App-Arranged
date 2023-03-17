@@ -1,5 +1,6 @@
 import { View, Text, ScrollView, Dimensions, Animated } from "react-native";
 import tw from "twrnc";
+import { globalStyles } from "../../../globalStyles";
 import { events } from "../../dummyData/data";
 import SwipeableTicket from "../SwipeableTicket/swipeable";
 
@@ -8,7 +9,12 @@ export default function MyTickets() {
 
   return (
     <View style={tw`items-center justify-center bg-white pt-2`}>
-      <Text style={tw`text-zinc-400 font-medium text-center mb-3`}>
+      <Text
+        style={[
+          tw`text-zinc-400 text-xs text-center mb-3`,
+          globalStyles.poppinsFont,
+        ]}
+      >
         To scan your ticket, slide left and click the QR
       </Text>
 

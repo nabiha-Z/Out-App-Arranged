@@ -16,11 +16,13 @@ import Choices from "./src/screens/Chat/choices";
 import Subjects from "./src/screens/Subjects/subjects";
 import Checkout from "./src/screens/Checkout/checkout";
 import Cart from "./src/screens/Cart/cart";
+import { globalStyles } from "./globalStyles";
 
 const customFonts = {
-  "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
-  "Poppins-Light": require("./assets/fonts/Poppins/Poppins-Light.ttf"),
   "Poppins-Bold": require("./assets/fonts/Poppins/Poppins-Bold.ttf"),
+  "Poppins-Regular": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
+  "Poppins-Medium": require("./assets/fonts/Poppins/Poppins-Medium.ttf"),
+  "Inter-Regular": require("./assets/fonts/Inter/Inter-VariableFont_slnt.ttf"),
 };
 
 const Stack = createStackNavigator();
@@ -28,61 +30,17 @@ const Stack = createStackNavigator();
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  const loadFontsAsync = async () => {
-    await Font.loadAsync(customFonts);
-    setFontsLoaded(true);
-  };
-
   useEffect(() => {
-    loadFontsAsync();
+    async function loadFonts() {
+      await Font.loadAsync(customFonts);
+    }
+
+    loadFonts();
   }, []);
 
-  if (fontsLoaded) {
-    console.log("font loaded");
-  }
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Event"
-          component={Event}
-          options={({ navigation }) => ({
-            title: "",
-            headerStyle: {
-              backgroundColor: "white",
-              height: 110,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Cart"
-          component={Cart}
-          options={({ navigation }) => ({
-            title: "My Cart",
-            headerStyle: {
-              backgroundColor: "#F8FAFB",
-              height: 110,
-            },
-            headerTitleStyle: {
-              marginLeft: 65,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashobard}
-          options={() => ({
-            title: "",
-            headerStyle: {
-              height: 0,
-            },
-            headerLeft: null,
-          })}
-        />
         <Stack.Screen
           name="LoadingScreen"
           component={LoadingScreen}
@@ -94,6 +52,7 @@ export default function App() {
             headerLeft: null,
           })}
         />
+
         <Stack.Screen
           name="HomeScreen"
           component={Home}
@@ -128,6 +87,19 @@ export default function App() {
             headerLeft: null,
           })}
         />
+
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashobard}
+          options={() => ({
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          })}
+        />
+
         <Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
@@ -137,13 +109,7 @@ export default function App() {
               backgroundColor: "rgba(214, 240, 254,0.24)",
               height: 110,
             },
-            headerTitleStyle: {
-              marginLeft: 50,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-            },
+            headerTitleStyle: globalStyles.screenHeaderStyles,
           })}
         />
 
@@ -156,13 +122,10 @@ export default function App() {
               backgroundColor: "#F1F3F5",
               height: 110,
             },
-            headerTitleStyle: {
-              marginLeft: 25,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-            },
+            headerTitleStyle: [
+              globalStyles.screenHeaderStyles,
+              { marginLeft: 25 },
+            ],
           })}
         />
 
@@ -175,13 +138,10 @@ export default function App() {
               backgroundColor: "white",
               height: 110,
             },
-            headerTitleStyle: {
-              marginLeft: 10,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-            },
+            headerTitleStyle: [
+              globalStyles.screenHeaderStyles,
+              { marginLeft: 10 },
+            ],
           })}
         />
         <Stack.Screen
@@ -193,12 +153,21 @@ export default function App() {
               backgroundColor: "white",
               height: 110,
             },
-            headerTitleStyle: {
-              marginLeft: 10,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
+            headerTitleStyle: [
+              globalStyles.screenHeaderStyles,
+              { marginLeft: 10 },
+            ],
+          })}
+        />
+
+        <Stack.Screen
+          name="Event"
+          component={Event}
+          options={({ navigation }) => ({
+            title: "",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
             },
           })}
         />
@@ -214,6 +183,25 @@ export default function App() {
             },
             headerTitleStyle: {
               marginLeft: 70,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        />
+
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
+          options={({ navigation }) => ({
+            title: "My Cart",
+            headerStyle: {
+              backgroundColor: "#F8FAFB",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 65,
               fontSize: 18,
               textAlign: "center",
               fontWeight: "500",

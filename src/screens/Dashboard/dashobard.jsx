@@ -1,14 +1,13 @@
-import { useState, useRef } from "react";
-import { Animated } from "react-native";
-import { Dimensions, View, Text } from "react-native";
 import tw from "twrnc";
+import { useRef } from "react";
+import { Dimensions, View, Text, Animated } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../../components/TabNavigator/home";
 import Profile from "../../components/TabNavigator/profile";
 import Messages from "../../components/TabNavigator/messages";
 import MyTickets from "../../components/TabNavigator/tickets";
-import EventQRModal from "../../components/Modal/QRmodal";
+import { globalStyles } from "../../../globalStyles";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
@@ -102,15 +101,7 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: {
-              color: "#707377",
-              fontSize: 14,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-              left: 130,
-              top: 25,
-            },
+            headerTitleStyle: globalStyles.tabHeaderStyles,
 
             tabBarIcon: ({ focused }) => (
               <View
@@ -199,15 +190,7 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: {
-              color: "#707377",
-              fontSize: 17,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-              left: 122,
-              top: 25,
-            },
+            headerTitleStyle: globalStyles.tabHeaderStyles,
             headerLeft: null,
             tabBarIcon: ({ focused }) => (
               <View
@@ -253,15 +236,7 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: {
-              color: "#707377",
-              fontSize: 17,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
-              left: 140,
-              top: 25,
-            },
+            headerTitleStyle: [globalStyles.tabHeaderStyles, { left: 140 }],
             tabBarIcon: ({ focused }) => (
               <View
                 style={[

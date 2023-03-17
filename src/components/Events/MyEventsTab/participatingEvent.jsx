@@ -3,6 +3,7 @@ import tw from "twrnc";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import user4 from "../../../../assets/images/user-4.png";
 import { myEvents } from "../../../dummyData/data";
+import { globalStyles } from "../../../../globalStyles";
 
 export default function ParticipatingEvents() {
   return (
@@ -14,7 +15,12 @@ export default function ParticipatingEvents() {
         >
           <Image source={user4} style={tw`rounded`} />
           <View style={tw`m-3`}>
-            <Text style={tw`text-[#1180B9] text-lg font-semibold`}>
+            <Text
+              style={[
+                tw`text-[#1180B9] text-[16px] font-semibold`,
+                globalStyles.poppinsFont,
+              ]}
+            >
               {item.title}
             </Text>
             <Text style={tw`italic text-xs text-stone-400`}>{item.ticket}</Text>

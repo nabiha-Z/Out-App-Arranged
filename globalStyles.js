@@ -79,4 +79,34 @@ export const globalStyles = StyleSheet.create({
   rotate: {
     transform: [{ rotate: "90deg" }],
   },
+
+  screenHeaderStyles: {
+    fontFamily: "Poppins-Medium",
+    marginLeft: 50,
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "400",
+    letterSpacing: 1,
+  },
+  tabHeaderStyles: {
+    fontFamily: "Poppins-Regular",
+    color: "black",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "600",
+    letterSpacing: 1,
+    left: 118,
+    top: 25,
+  },
+  poppinsFont: {
+    fontFamily: "Poppins-Regular",
+  },
+
+  poppinsFontBold: {
+    fontFamily: "Poppins-Bold",
+  },
+
+  interFont: {
+    fontFamily: "Inter-Regular",
+  },
 });
