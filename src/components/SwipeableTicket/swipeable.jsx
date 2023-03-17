@@ -40,12 +40,30 @@ export default function SwipeableTicket({ item }) {
           />
           <View style={tw`flex flex-row absolute`}>
             <View style={tw`w-32 ml-[3rem]`}>
-              <Text style={tw`text-stone-300 text-xs`}>{priority}</Text>
-              <Text style={tw`text-white font-bold text-lg `}>{name}</Text>
-              <Text style={tw`text-stone-300 `}>{description}</Text>
+              <Text
+                style={[
+                  tw`text-stone-200 text-xs italic font-bold`,
+                  globalStyles.interFont,
+                ]}
+              >
+                {priority}
+              </Text>
+              <Text
+                style={[
+                  tw`text-white font-bold text-lg `,
+                  globalStyles.interFont,
+                ]}
+              >
+                {name}
+              </Text>
+              <Text
+                style={[tw`text-stone-300 text-xs`, globalStyles.interFont]}
+              >
+                {description}
+              </Text>
             </View>
-            <View style={[tw`mr-[1rem]`, globalStyles.rotate]}>
-              <Text style={tw`text-white`}>..............................</Text>
+            <View style={[tw`mr-[1rem] mb-1`, globalStyles.rotate]}>
+              <Text style={tw`text-white`}>..........................</Text>
             </View>
           </View>
         </View>

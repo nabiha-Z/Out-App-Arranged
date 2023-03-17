@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  Animated,
   StyleSheet,
   Dimensions,
 } from "react-native";
@@ -17,62 +16,64 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import { globalStyles } from "../../../globalStyles";
-import backgroundImage from "../../../assets/images/banner.png";
-import overlay from "../../../assets/images/rectangle-9.png";
+import ShareModal from "../../components/Modal/Sharemodal";
+import SettingsModal from "../../components/Modal/Settings";
 import profile from "../../../assets/images/profile.png";
+import overlay from "../../../assets/images/rectangle-9.png";
+import backgroundImage from "../../../assets/images/banner.png";
+import LeftHeader from "../../components/Navigation/leftHeader";
+import EventTicket from "../../components/Ticket/eventTicket";
+import ticket1 from "../../../assets/images/ticket-1.png";
+import ticket2 from "../../../assets/images/ticket-2.png";
+import ticket3 from "../../../assets/images/ticket-3.png";
+import cartIcon from "../../../assets/images/cart-icon.png";
+import { events } from "../../dummyData/data";
 
 export default function Event({ navigation }) {
-  const [user, setUser] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [showSetting, setShowSetting] = useState(false);
+  const [user, setUser] = useState(true);
   const event = {
     name: "Event Name",
     location: "Savanorių pr. 16, LT-03116, Vilniaus m. sav.",
     time: "Sunday - 11h AM",
     info: "At nunc si ad aliquem bene nummatum em ue ideo honestus advenAt nunc",
   };
+  const tickets = [ticket1, ticket2, ticket3];
   const windowHeight = Dimensions.get("window").height;
 
   useLayoutEffect(() => {
+    LeftHeader({ navigation });
     navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <View style={tw`ml-5`}>
-            <MaterialIcons
-              name="keyboard-arrow-left"
+      headerRight: () => (
+        <TouchableOpacity
+          style={tw`mr-8`}
+          onPress={() => setShowSetting(!showSetting)}
+        >
+          {user ? (
+            <>
+              <View
+                style={tw`flex self-end absolute z-10 bg-white w-[10px] h-[10px] items-center justify-center rounded-full`}
+              >
+                <View
+                  style={tw`flex self-end absolute z-10 bg-red-500 w-2 h-2 rounded-full`}
+                ></View>
+              </View>
+              <MaterialCommunityIcons name="cart" size={24} color="#B1B1B1" />
+            </>
+          ) : (
+            <MaterialCommunityIcons
+              name="dots-horizontal"
               size={24}
               color="black"
-              onPress={() => navigation.pop()}
             />
-          </View>
-        </TouchableOpacity>
-      ),
-      headerRight: () => (
-        <TouchableOpacity>
-          <View style={tw`mr-8`}>
-            {user ? (
-              <>
-                <View
-                  style={tw`flex self-end absolute z-10 bg-white w-[10px] h-[10px] items-center justify-center rounded-full`}
-                >
-                  <View
-                    style={tw`flex self-end absolute z-10 bg-red-500 w-2 h-2 rounded-full`}
-                  ></View>
-                </View>
-                <MaterialCommunityIcons name="cart" size={24} color="#B1B1B1" />
-              </>
-            ) : (
-              <MaterialCommunityIcons
-                name="dots-horizontal"
-                size={24}
-                color="black"
-              />
-            )}
-          </View>
+          )}
         </TouchableOpacity>
       ),
     });
   }, []);
   return (
-    <View>
+    <View style={tw`flex`}>
       <Image
         source={backgroundImage}
         style={(globalStyles.bgImage, StyleSheet.absoluteFill)}
@@ -80,7 +81,7 @@ export default function Event({ navigation }) {
       <Image source={overlay} style={StyleSheet.absoluteFill} />
       <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-6`}>
         <View
-          style={tw`flex flex-row w-full justify-between items-center mb-4 mt-16`}
+          style={tw`flex flex-row w-full justify-between items-center mb-6 mt-16`}
         >
           <View style={tw`p-2`}>
             {user && (
@@ -112,18 +113,35 @@ export default function Event({ navigation }) {
         <View style={[tw`bg-white p-5 rounded-2xl w-76`, globalStyles.shadow]}>
           <View style={tw`flex flex-row justify-between items-center`}>
             <View>
-              <Text style={tw`text-lg font-bold tracking-wide`}>
+              <Text
+                style={[
+                  tw`text-lg tracking-wider font-bold`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
                 {event.name}
               </Text>
-              <Text style={tw`text-[#1180B9] font-bold`}>
+              <Text
+                style={[
+                  tw`text-[#1180B9] font-medium text-[14px]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
                 Address Information
               </Text>
             </View>
-            <Entypo name="forward" size={24} color="#1180B9" />
+            <TouchableOpacity onPress={() => setOpen(!open)}>
+              <Entypo name="forward" size={24} color="#1180B9" />
+            </TouchableOpacity>
           </View>
           <View style={tw`flex flex-row mt-3 w-60 items-center`}>
             <MaterialIcons name="location-on" size={24} color="#1180B9" />
-            <Text style={tw`text-[#1180B9] text-xs ml-1`}>
+            <Text
+              style={[
+                tw`text-[#1180B9] text-[10px] ml-1`,
+                globalStyles.poppinsFont,
+              ]}
+            >
               {event.location}
             </Text>
           </View>
@@ -132,30 +150,52 @@ export default function Event({ navigation }) {
         <View
           style={[tw`bg-white p-5 rounded-2xl mt-4 w-76`, globalStyles.shadow]}
         >
-          <Text style={tw`text-[#1180B9] font-bold text-lg`}>Event's Time</Text>
+          <Text
+            style={[
+              tw`text-[#1180B9] font-[600] text-[14px]`,
+              globalStyles.poppinsFont,
+            ]}
+          >
+            Event's Time
+          </Text>
           <View style={tw`flex flex-row mt-3 w-60 items-center`}>
             <Ionicons name="md-calendar" size={20} color="black" />
-            <Text style={tw`ml-1 font-bold`}>{event.time}</Text>
+            <Text style={[tw`ml-1 font-xs`, globalStyles.poppinsFont]}>
+              {event.time}
+            </Text>
           </View>
         </View>
 
         <View
-          style={[
-            tw`bg-white p-5 rounded-2xl mt-4 mb-20 w-76`,
-            globalStyles.shadow,
-          ]}
+          style={[tw`bg-white p-5 rounded-2xl mt-4 w-76`, globalStyles.shadow]}
         >
-          <Text style={tw`text-[#1180B9] font-bold text-lg`}>
+          <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
             Additional Information
           </Text>
-          <Text style={tw`ml-1 text-xs`}>{event.info}</Text>
+          <Text style={[tw`ml-1 text-xs`, globalStyles.poppinsFont]}>
+            {event.info}
+          </Text>
         </View>
+
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={tw`py-15 flex justify-between items-center `}
+        >
+          {events.map((item) => (
+            <EventTicket item={item} tickets={tickets} marginRight="7" />
+          ))}
+        </ScrollView>
       </ScrollView>
       <TouchableOpacity
-        style={tw`w-76 justify-center items-center self-center p-3 bg-[#013B4F] rounded-full m-4`}
+        style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] rounded-full m-4 mt-2`}
+        onPress={() => navigation.navigate("Cart")}
       >
-        <Text style={tw`text-white font-bold text-lg`}>RSVP</Text>
+        <Image source={cartIcon} />
       </TouchableOpacity>
+
+      <ShareModal open={open} setOpen={setOpen} />
+      <SettingsModal open={showSetting} setOpen={setShowSetting} />
     </View>
   );
 }

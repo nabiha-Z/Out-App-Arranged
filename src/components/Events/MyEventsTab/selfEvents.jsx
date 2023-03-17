@@ -5,6 +5,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import user4 from "../../../../assets/images/user-4.png";
 import { myEvents } from "../../../dummyData/data";
 import { ScrollView } from "react-native-gesture-handler";
+import { globalStyles } from "../../../../globalStyles";
 export default function SelfEvents() {
   const navigation = useNavigation();
   return (
@@ -17,7 +18,12 @@ export default function SelfEvents() {
         >
           <Image source={user4} style={tw`rounded`} />
           <View style={tw`m-3`}>
-            <Text style={tw`text-[#1180B9] text-lg font-semibold`}>
+            <Text
+              style={[
+                tw`text-[#1180B9] font-semibold text-[16px]`,
+                globalStyles.poppinsFont,
+              ]}
+            >
               {item.title}
             </Text>
             <Text style={tw`italic text-xs text-stone-400`}>{item.ticket}</Text>

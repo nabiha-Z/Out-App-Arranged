@@ -7,11 +7,11 @@ import {
   Dimensions,
   ScrollView,
 } from "react-native";
-import RightHeader from "../../components/Navigation/rightHeader";
+import LeftHeader from "../../components/Navigation/leftHeader";
 import ticket1 from "../../../assets/images/ticket-1.png";
 import ticket2 from "../../../assets/images/ticket-2.png";
 import ticket3 from "../../../assets/images/ticket-3.png";
-import Tickets from "../../components/Ticket/ticket";
+import CartItems from "../../components/Ticket/ticket";
 import { events } from "../../dummyData/data";
 
 export default function Cart({ navigation }) {
@@ -19,14 +19,14 @@ export default function Cart({ navigation }) {
   const tickets = [ticket1, ticket2, ticket3];
 
   useLayoutEffect(() => {
-    RightHeader({ navigation });
+    LeftHeader({ navigation });
   }, []);
 
   return (
     <ScrollView style={[tw`bg-white`, { height: windowHeight * 0.9 }]}>
       <View style={tw`p-3`}>
         {events.map((item) => (
-          <Tickets tickets={tickets} item={item} key={item._id} />
+          <CartItems tickets={tickets} item={item} key={item._id} />
         ))}
       </View>
 

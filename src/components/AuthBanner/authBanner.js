@@ -11,6 +11,7 @@ import Vector2 from "../../../assets/images/vector-2.png";
 import blurBox from "../../../assets/images/blur-rectangle.png";
 import background from "../../../assets/images/ellipse.png";
 import { useNavigation } from "@react-navigation/native";
+import { globalStyles } from "../../../globalStyles";
 
 export default function Banner({ operation, header }) {
   const pageCheck = operation === "Sign Up" ? true : false;
@@ -51,33 +52,50 @@ export default function Banner({ operation, header }) {
         />
         <View style={authStyles.content}>
           <View style={authStyles.textContainer}>
-            <Text style={[authStyles.text, tw`uppercase text-lg`]}>{header}</Text>
+            <Text style={[authStyles.text, tw`uppercase text-lg`]}>
+              {header}
+            </Text>
             {pageCheck && <Text style={authStyles.text}>Today</Text>}
           </View>
 
           <View style={[tw`items-center`, { top: 215 }]}>
-            <View style={authStyles.authButtons}>
+            <TouchableOpacity
+              style={authStyles.authButtons}
+              onPress={() => navigation.navigate("Dashboard")}
+            >
               <Image source={GoogleIcon} style={tw`m-6 w-5 h-5`} />
-              <Text style={tw`text-sm ml-3`}>{operation} with Google</Text>
-            </View>
+              <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>
+                {operation} with Google
+              </Text>
+            </TouchableOpacity>
 
-            <View style={authStyles.authButtons}>
+            <TouchableOpacity style={authStyles.authButtons}>
               <Image source={AppleIcon} style={tw`m-6 w-5 h-5`} />
-              <Text style={tw`text-sm ml-3`}>{operation} with Apple</Text>
-            </View>
+              <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>
+                {operation} with Apple
+              </Text>
+            </TouchableOpacity>
 
-            <View style={authStyles.authButtons}>
+            <TouchableOpacity style={authStyles.authButtons}>
               <Image source={FacebookIcon} style={tw`m-6 w-5 h-5`} />
-              <Text style={tw`text-sm ml-3`}>{operation} with Facebook</Text>
-            </View>
+              <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>
+                {operation} with Facebook
+              </Text>
+            </TouchableOpacity>
+
             {pageCheck && (
               <View style={tw`flex flex-row mt-5`}>
-                <Text>Already have an account?</Text>
+                <Text style={globalStyles.poppinsFont}>
+                  Already have an account?
+                </Text>
                 <TouchableOpacity
                   style={tw`ml-1`}
                   onPress={() => navigation.navigate("SigninScreen")}
                 >
-                  <Text style={tw`text-blue-300`}> Login</Text>
+                  <Text style={[tw`text-blue-300`, globalStyles.poppinsFont]}>
+                    {" "}
+                    Login
+                  </Text>
                 </TouchableOpacity>
               </View>
             )}

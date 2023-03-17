@@ -24,13 +24,12 @@ export const homeStyles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.94)",
   },
 
-  content: {},
   text: {
     fontFamily: "Poppins-Regular",
-    fontWeight: "700",
-    fontSize: 28,
-    lineHeight: 30,
-    letterSpacing: 0.8,
+    fontWeight: 600,
+    fontSize: 30,
+    lineHeight: 34,
+    letterSpacing: 0.4,
     color: "#1180B9",
     width: 500,
   },

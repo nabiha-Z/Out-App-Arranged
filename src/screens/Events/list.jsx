@@ -36,7 +36,7 @@ export default function EventsList({ navigation }) {
         indicatorStyle: {
           marginHorizontal: "5%",
           width: "40%",
-          fontSize:40
+          fontSize: 40,
         },
       }}
     >
