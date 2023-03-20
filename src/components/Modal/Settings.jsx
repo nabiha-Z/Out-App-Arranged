@@ -112,7 +112,7 @@ export default function Settings({ open, setOpen }) {
                     </Text>
                     <Text
                       style={[
-                        tw`text-[9px] text-[#86868]`,
+                        tw`text-[9px] text-[#868686]`,
                         globalStyles.poppinsFont,
                       ]}
                     >
@@ -131,7 +131,7 @@ export default function Settings({ open, setOpen }) {
                     </Text>
                     <Text
                       style={[
-                        tw`text-[9px] text-[#86868]`,
+                        tw`text-[9px] text-[#868686]`,
                         globalStyles.poppinsFont,
                       ]}
                     >
