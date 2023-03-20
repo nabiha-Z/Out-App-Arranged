@@ -8,7 +8,6 @@ export default function Buttons({ title, pageRedirect, icon }) {
   return (
     <TouchableOpacity
       style={tw`flex flex-row border-b border-gray-200 pb-4 mb-2`}
-      onPress={() => navigation.navigate(pageRedirect)}
     >
       <Ionicons name={icon} size={16} color="#185C7E" />
       <View style={tw`w-40`}>

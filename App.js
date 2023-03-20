@@ -41,21 +41,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Checkout"
-          component={Checkout}
+      <Stack.Screen
+          name="Event"
+          component={Event}
           options={({ navigation }) => ({
-            title: "Checkout",
+            title: "",
             headerStyle: {
-              backgroundColor: "#F8FAFB",
+              backgroundColor: "white",
               height: 110,
-            },
-            headerTitleStyle: {
-              marginLeft: 65,
-              fontSize: 18,
-              textAlign: "center",
-              fontWeight: "500",
-              letterSpacing: 1,
             },
           })}
         />
@@ -117,6 +110,24 @@ export default function App() {
           })}
         />
 
+        <Stack.Screen
+          name="Checkout"
+          component={Checkout}
+          options={({ navigation }) => ({
+            title: "Checkout",
+            headerStyle: {
+              backgroundColor: "#F8FAFB",
+              height: 110,
+            },
+            headerTitleStyle: {
+              marginLeft: 65,
+              fontSize: 18,
+              textAlign: "center",
+              fontWeight: "500",
+              letterSpacing: 1,
+            },
+          })}
+        />
         <Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
@@ -192,17 +203,7 @@ export default function App() {
           })}
         />
 
-        <Stack.Screen
-          name="Event"
-          component={Event}
-          options={({ navigation }) => ({
-            title: "",
-            headerStyle: {
-              backgroundColor: "white",
-              height: 110,
-            },
-          })}
-        />
+     
 
         <Stack.Screen
           name="Subjects"

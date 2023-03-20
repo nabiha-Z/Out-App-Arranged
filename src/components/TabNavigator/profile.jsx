@@ -74,11 +74,7 @@ export default function Profile() {
         <View style={tw`m-10`}>
           <Buttons title="Payment Information" icon="wallet" pageRedirect="" />
           <Buttons title="Setting" icon="settings-sharp" pageRedirect="" />
-          <Buttons
-            title="Events"
-            icon="settings-sharp"
-            pageRedirect="EventList"
-          />
+
           <Buttons
             title="About"
             icon="information-circle-sharp"
@@ -87,7 +83,6 @@ export default function Profile() {
 
           <TouchableOpacity
             style={tw`flex flex-row border-b border-gray-200 pb-4 mb-2`}
-            onPress={() => navigation.navigate("")}
           >
             <MaterialIcons name="feedback" size={16} color="#185C7E" />
             <View style={tw`w-40`}>

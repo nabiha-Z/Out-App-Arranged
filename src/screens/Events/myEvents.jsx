@@ -9,7 +9,6 @@ import { MaterialIcons, Feather } from "@expo/vector-icons";
 const Tab = createMaterialTopTabNavigator();
 
 export default function MyEvents({ navigation }) {
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -20,7 +19,7 @@ export default function MyEvents({ navigation }) {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity onPress={() => setShowSetting(!showSetting)}>
+        <TouchableOpacity>
           <View style={tw`mr-8`}>
             <Feather name="menu" size={25} color="#013B4F" style={tw`mt-2`} />
           </View>
@@ -30,20 +29,18 @@ export default function MyEvents({ navigation }) {
   }, []);
 
   return (
-
-      <Tab.Navigator
-        screenOptions={{
-          labelStyle: { fontSize: 14 },
-          tabStyle: { flex: 1, justifyContent: "center" },
-          indicatorStyle: {
-            marginHorizontal: "5%",
-            width: "40%",
-          },
-        }}
-      >
-        <Tab.Screen name="Created by me" component={SelfEvents} />
-        <Tab.Screen name="Participating" component={ParticipatingEvents} />
-      </Tab.Navigator>
-
+    <Tab.Navigator
+      screenOptions={{
+        labelStyle: { fontSize: 14 },
+        tabStyle: { flex: 1, justifyContent: "center" },
+        indicatorStyle: {
+          marginHorizontal: "5%",
+          width: "40%",
+        },
+      }}
+    >
+      <Tab.Screen name="Created by me" component={SelfEvents} />
+      <Tab.Screen name="Participating" component={ParticipatingEvents} />
+    </Tab.Navigator>
   );
 }

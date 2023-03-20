@@ -7,6 +7,7 @@ export default function Slider({ title }) {
   return (
     <View
       style={[tw`bg-white rounded-lg w-60 h-40 m-2 mb-5`, globalStyles.shadow]}
+      key={Math.floor(Math.random() * 3000) + 0}
     >
       <View style={tw`rounded-t-lg p-2 bg-[#013B4F]`}>
         <Text style={tw`text-white text-lg text-center`}>{title}</Text>

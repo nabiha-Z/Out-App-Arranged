@@ -15,7 +15,6 @@ import {
 import ChatFooter from "../../components/Chats/footer";
 
 export default function Choices({ navigation }) {
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -26,7 +25,7 @@ export default function Choices({ navigation }) {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity onPress={() => alert("menu")}>
+        <TouchableOpacity>
           <View style={{ marginRight: 15 }}>
             <MaterialCommunityIcons
               name="dots-horizontal"

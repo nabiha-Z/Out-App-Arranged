@@ -20,7 +20,7 @@ export default function EventsList({ navigation }) {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity onPress={() => setOpen(!open)}>
+        <TouchableOpacity>
           <View style={tw`mr-8`}>
             <Feather name="menu" size={25} color="#013B4F" style={tw`mt-2`} />
           </View>
