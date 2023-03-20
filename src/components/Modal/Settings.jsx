@@ -6,7 +6,6 @@ import {
   Text,
   Modal,
   Switch,
-  TextInput,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { globalStyles } from "../../../globalStyles";
