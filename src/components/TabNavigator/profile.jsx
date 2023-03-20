@@ -10,6 +10,7 @@ import About from "../../../assets/images/Vector-3.png";
 import Settings from "../../../assets/images/Vector-4.png";
 import Feedback from "../../../assets/images/Vector-5.png";
 import Buttons from "../ProfileButtons/buttons";
+import { globalStyles } from "../../../globalStyles";
 
 export default function Profile() {
   const navigation = useNavigation();
@@ -29,17 +30,31 @@ export default function Profile() {
               <Image source={ProfileImage} style={tw`rounded-full border-2`} />
             </View>
             <View style={tw`mt-4`}>
-              <Text style={tw`text-white text-center text-lg font-bold`}>
+              <Text
+                style={[
+                  tw`text-white text-center text-lg`,
+                  globalStyles.poppinsFontBold,
+                ]}
+              >
                 {name}
               </Text>
-              <Text style={tw`text-gray-300 text-center text-sm font-light`}>
+              <Text
+                style={[
+                  tw`text-gray-300 text-center text-sm font-light`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
                 Age: {age} Years
               </Text>
             </View>
 
             <View style={tw`mt-6 px-6 w-72 mb-1`}>
-              <Text style={tw`text-white text-xs`}>Bio</Text>
-              <Text style={tw`text-white text-xs`}>Bio:{bio}</Text>
+              <Text style={[tw`text-white text-xs`, globalStyles.poppinsFont]}>
+                Bio
+              </Text>
+              <Text style={[tw`text-white text-xs`, globalStyles.poppinsFont]}>
+                Bio:{bio}
+              </Text>
             </View>
           </View>
 
@@ -59,7 +74,11 @@ export default function Profile() {
         <View style={tw`m-10`}>
           <Buttons title="Payment Information" icon="wallet" pageRedirect="" />
           <Buttons title="Setting" icon="settings-sharp" pageRedirect="" />
-          <Buttons title="Events" icon="settings-sharp" pageRedirect="EventList" />
+          <Buttons
+            title="Events"
+            icon="settings-sharp"
+            pageRedirect="EventList"
+          />
           <Buttons
             title="About"
             icon="information-circle-sharp"
@@ -72,7 +91,12 @@ export default function Profile() {
           >
             <MaterialIcons name="feedback" size={16} color="#185C7E" />
             <View style={tw`w-40`}>
-              <Text style={[tw`text-xs mx-3 font-light`, { color: "#185C7E" }]}>
+              <Text
+                style={[
+                  tw`text-xs mx-3 font-light text-[#185C7E]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
                 Feedback
               </Text>
             </View>
@@ -86,10 +110,17 @@ export default function Profile() {
             </View>
           </TouchableOpacity>
 
-          <View style={tw`flex-row h-40 pt-10`}>
+          <TouchableOpacity
+            style={tw`flex-row h-40 pt-10`}
+            onPress={() => navigation.navigate("HomeScreen")}
+          >
             <MaterialIcons name="logout" size={18} color="#777777" />
-            <Text style={tw`text-sm ml-2 text-gray-500`}>logout</Text>
-          </View>
+            <Text
+              style={[tw`text-sm ml-2 text-gray-500`, globalStyles.poppinsFont]}
+            >
+              logout
+            </Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>

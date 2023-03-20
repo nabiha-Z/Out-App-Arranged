@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import tw from "twrnc";
 import * as Font from "expo-font";
 import Signup from "./src/screens/Auth/signup";
 import Signin from "./src/screens/Auth/signin";
 import Home from "./src/screens/HomeScreen/home";
-import ChatScreen from "./src/screens/Chat/chatScreen";
-import Dashobard from "./src/screens/Dashboard/dashobard";
-import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
-import MyEvents from "./src/screens/Events/myEvents";
-import EventsList from "./src/screens/Events/list";
+import Cart from "./src/screens/Cart/cart";
 import Event from "./src/screens/Events/event";
 import Choices from "./src/screens/Chat/choices";
+import EventsList from "./src/screens/Events/list";
+import NewEvent from "./src/screens/Events/newEvent";
+import MyEvents from "./src/screens/Events/myEvents";
 import Subjects from "./src/screens/Subjects/subjects";
+import ChatScreen from "./src/screens/Chat/chatScreen";
 import Checkout from "./src/screens/Checkout/checkout";
-import Cart from "./src/screens/Cart/cart";
+import Dashobard from "./src/screens/Dashboard/dashobard";
+import LoadingScreen from "./src/screens/HomeScreen/loadingScreen";
 import { globalStyles } from "./globalStyles";
 
 const customFonts = {
@@ -75,7 +75,6 @@ export default function App() {
             headerLeft: null,
           })}
         />
-
         <Stack.Screen
           name="SigninScreen"
           component={Signin}
@@ -99,7 +98,7 @@ export default function App() {
             headerLeft: null,
           })}
         />
-
+        
         <Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
@@ -159,6 +158,21 @@ export default function App() {
             ],
           })}
         />
+        <Stack.Screen
+          name="NewEvent"
+          component={NewEvent}
+          options={({ navigation }) => ({
+            title: "Event Creation",
+            headerStyle: {
+              backgroundColor: "white",
+              height: 110,
+            },
+            headerTitleStyle: [
+              globalStyles.screenHeaderStyles,
+              { marginLeft: 40 },
+            ],
+          })}
+        />
 
         <Stack.Screen
           name="Event"
@@ -209,7 +223,6 @@ export default function App() {
             },
           })}
         />
-
         <Stack.Screen
           name="Checkout"
           component={Checkout}

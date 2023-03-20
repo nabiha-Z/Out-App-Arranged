@@ -5,6 +5,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import SelfEvents from "../../components/Events/MyEventsTab/selfEvents";
 import ParticipatingEvents from "../../components/Events/MyEventsTab/participatingEvent";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
+import SharedEvents from "../../components/Events/SharedEventsTab/sharedEvents";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -40,8 +41,8 @@ export default function EventsList({ navigation }) {
         },
       }}
     >
-      <Tab.Screen name="Shared with you" component={SelfEvents} />
-      <Tab.Screen name="Saved" component={ParticipatingEvents} />
+      <Tab.Screen name="Shared with you" component={SharedEvents} />
+      <Tab.Screen name="Saved" component={SharedEvents} />
     </Tab.Navigator>
   );
 }

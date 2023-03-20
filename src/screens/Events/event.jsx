@@ -183,6 +183,7 @@ export default function Event({ navigation }) {
           contentContainerStyle={tw`py-15 flex justify-between items-center `}
         >
           {events.map((item) => (
+            
             <EventTicket item={item} tickets={tickets} marginRight="7" />
           ))}
         </ScrollView>
