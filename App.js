@@ -42,17 +42,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Dashboard"
-          component={Dashobard}
-          options={() => ({
-            title: "",
-            headerStyle: {
-              height: 0,
-            },
-            headerLeft: null,
-          })}
-        />
-        <Stack.Screen
           name="LoadingScreen"
           component={LoadingScreen}
           options={() => ({
@@ -86,7 +75,6 @@ export default function App() {
             headerLeft: null,
           })}
         />
-
         <Stack.Screen
           name="SigninScreen"
           component={Signin}
@@ -99,6 +87,18 @@ export default function App() {
           })}
         />
 
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashobard}
+          options={() => ({
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          })}
+        />
+        
         <Stack.Screen
           name="ChatScreen"
           component={ChatScreen}

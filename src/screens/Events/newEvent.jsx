@@ -174,7 +174,6 @@ export default function NewEvent({ navigation }) {
             </TouchableOpacity>
           </View>
 
-         
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}

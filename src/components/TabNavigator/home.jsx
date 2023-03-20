@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity } from "react-native";
 import tw from "twrnc";
+import { globalStyles } from "../../../globalStyles";
 import SearchHeader from "../Header/searchHeader";
 
 export default function Home() {
@@ -19,14 +20,14 @@ export default function Home() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={tw`bg-cyan-300 w-20 h-10 items-center justify-center rounded`}
+            style={[tw`bg-cyan-300 w-20 h-10 items-center justify-center rounded`, globalStyles.poppinsFont]}
             onPress={() => navigation.navigate("EventList")}
           >
             <Text>Event List</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={tw`bg-teal-300 w-20 h-10 items-center justify-center rounded`}
+            style={tw`bg-teal-100 w-20 h-10 items-center justify-center rounded`}
             onPress={() => navigation.navigate("NewEvent")}
           >
             <Text>Create Event</Text>
