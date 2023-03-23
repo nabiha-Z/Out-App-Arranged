@@ -1,24 +1,14 @@
 {
   "expo": {
-    "name": "Out-App-Arranged",
-    "slug": "Out-App-Arranged",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "userInterfaceStyle": "light",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "package": "OutAppArranged.F1703"
-    },
-    "web": {},
+    "scheme": "out-app-arranged",
     "extra": {
       "eas": {
-        "projectId": "1db4e00d-c066-4b45-af86-cdf08bb528ad"
+        "projectId": "b65e86eb-ed6a-48a4-b154-d0eeef633b89"
       }
+    },
+    "owner": "fyp-22",
+    "android": {
+      "package": "outapparranged.M24"
     }
   }
 }

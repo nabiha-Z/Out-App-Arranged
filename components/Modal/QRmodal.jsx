@@ -1,0 +1,42 @@
+import React from "react";
+import {
+  View,
+  Image,
+  Dimensions,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
+import tw from "twrnc";
+import QR from "../../assets/images/QR.png";
+import outLogo from "../../assets/images/out-logo-2.png";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
+export default function EventQRModal({ open, setOpen, eventName }) {
+  const windowHeight = Dimensions.get("window").height;
+  return (
+    <Modal
+      animationType="slide"
+      visible={open}
+      style={tw`flex-1 justify-center items-center`}
+    >
+      <Image
+        source={outLogo}
+        style={[tw`mt-${windowHeight * 0.08} ml-6`, StyleSheet.absoluteFill]}
+      />
+      <View style={tw`justify-center items-center mt-28`}>
+        <Image source={QR} />
+        <Text style={tw`font-semibold`}>{eventName}</Text>
+        <Text style={tw`text-xs`}>Participant's</Text>
+        <TouchableOpacity
+          style={tw`w-12 h-12 bg-stone-400 mt-36 rounded-full p-3 justify-center items-center`}
+          onPress={() => setOpen(false)}
+        >
+          <Ionicons name="close-outline" size={26} color="white" />
+        </TouchableOpacity>
+      </View>
+    </Modal>
+  );
+}
