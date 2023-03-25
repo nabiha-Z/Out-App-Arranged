@@ -21,6 +21,8 @@ export default function Cart() {
   const navigation = useNavigation();
   const router = useRouter();
   const windowHeight = Dimensions.get("window").height;
+  const windowWidth = Dimensions.get("window").width;
+
   const tickets = [ticket1, ticket2, ticket3];
 
   useLayoutEffect(() => {

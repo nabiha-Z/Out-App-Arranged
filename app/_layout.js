@@ -5,7 +5,8 @@ import * as Font from "expo-font";
 const customFonts = {
   "Poppins-Bold": require("../assets/fonts/Poppins/Poppins-Bold.ttf"),
   "Poppins-Regular": require("../assets/fonts/Poppins/Poppins-Regular.ttf"),
-  "Inter-Regular": require("../assets/fonts/Inter/Inter-VariableFont_slnt.ttf"),
+  "Inter-Regular": require("../assets/fonts/Inter/static/Inter-Regular.ttf"),
+  "Inter-Bold": require("../assets/fonts/Inter/static/Inter-Bold.ttf"),
 };
 
 export default function Layout() {
@@ -25,7 +26,6 @@ export default function Layout() {
             backgroundColor: "white",
             height: 110,
           },
-          // headerTitleStyle: globalStyles.screenHeaderStyles,
         }}
       />
     </>

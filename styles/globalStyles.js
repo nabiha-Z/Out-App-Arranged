@@ -11,21 +11,21 @@ export const globalStyles = StyleSheet.create({
   },
 
   shadow: {
-    elevation: 7,
+    elevation: 5,
     shadowColor: "#3C3D3E",
-    shadowOffset: { width: 40, height: 27 },
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
-    shadowSpread: 50,
+    shadowOffset: { width: 8, height: 10 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    shadowSpread: 30,
   },
   highlightedShadow: {
     shadowColor: "#1180B9",
     shadowOffset: {
-      width: 10,
-      height: 10,
+      width: 2,
+      height: 2,
     },
-    shadowOpacity: 0.5,
-    shadowRadius: 40,
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
     elevation: 5, // This is required for Android
   },
   centeredView: {
@@ -95,7 +95,7 @@ export const globalStyles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "600",
     letterSpacing: 1,
-    left: 118,
+    // left: 118,
     top: 25,
   },
   poppinsFont: {
@@ -108,5 +108,9 @@ export const globalStyles = StyleSheet.create({
 
   interFont: {
     fontFamily: "Inter-Regular",
+  },
+
+  interFontBold: {
+    fontFamily: "Inter-Bold",
   },
 });

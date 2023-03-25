@@ -5,6 +5,7 @@ import { globalStyles } from "../../styles/globalStyles";
 
 export default function Footer({ screen }) {
   const windowHeight = Dimensions.get("window").height;
+  const windowWidth = Dimensions.get("window").width;
 
   return (
     <View
@@ -24,7 +25,7 @@ export default function Footer({ screen }) {
       />
 
       <TextInput
-        style={tw` w-40 h-12 p-2 px-4 mt-4 ${
+        style={tw` w-${windowWidth * 0.13} h-12 p-2 px-4 mt-4 ${
           screen == "chat" ? "bg-slate-100" : "bg-white"
         } text-sm text-slate-400 rounded-full`}
         placeholder="Type message..."

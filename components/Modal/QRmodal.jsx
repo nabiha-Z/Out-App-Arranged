@@ -16,6 +16,8 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function EventQRModal({ open, setOpen, eventName }) {
   const windowHeight = Dimensions.get("window").height;
+  const windowWidth = Dimensions.get("window").width;
+
   return (
     <Modal
       animationType="slide"
@@ -24,7 +26,9 @@ export default function EventQRModal({ open, setOpen, eventName }) {
     >
       <Image
         source={outLogo}
-        style={[tw`mt-${windowHeight * 0.08} ml-6`, StyleSheet.absoluteFill]}
+        style={[
+          tw`mt-${windowHeight * 0.08} w-${windowWidth * 0.16} h-${windowHeight * 0.14} ml-${windowWidth * 0.09} absolute`,
+        ]}
       />
       <View style={tw`justify-center items-center mt-28`}>
         <Image source={QR} />

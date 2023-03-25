@@ -1,9 +1,13 @@
 import { useLayoutEffect } from "react";
 import tw from "twrnc";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import {
-  MaterialIcons,
-  MaterialCommunityIcons,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
+import {
   Entypo,
 } from "@expo/vector-icons";
 import { useNavigation, Stack } from "expo-router";
@@ -14,6 +18,8 @@ import RightHeader from "../components/Navigation/rightHeader";
 import { globalStyles } from "../styles/globalStyles";
 
 export default function Choices() {
+  const windowWidth = Dimensions.get("window").width;
+
   const navigation = useNavigation();
   useLayoutEffect(() => {
     LeftHeader({ navigation }), RightHeader({ navigation });

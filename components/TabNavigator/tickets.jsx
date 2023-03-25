@@ -19,7 +19,7 @@ export default function MyTickets() {
       </Text>
 
       <ScrollView style={[{ height: windowHeight * 0.9 }]}>
-        <View style={tw`pb-32`}>
+        <View style={tw`pb-32 mt-4`}>
           {events.map((item) => (
             <SwipeableTicket item={item} key={item._id} />
           ))}

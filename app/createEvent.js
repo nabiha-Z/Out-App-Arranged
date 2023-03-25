@@ -79,7 +79,10 @@ export default function NewEvent() {
             backgroundColor: "white",
             height: 130,
           },
-          headerTitleStyle: globalStyles.screenHeaderStyles,
+          headerTitleStyle: [
+            globalStyles.screenHeaderStyles,
+            { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+          ],
         }}
       />
       <Text style={[tw` text-center text-xs mt-3`, globalStyles.poppinsFont]}>
@@ -181,7 +184,8 @@ export default function NewEvent() {
                 <Switch
                   trackColor={{ false: "#D9D9D9", true: "#1180B9" }}
                   thumbColor={isEnabled ? "#FAFBFB" : "#f4f3f4"}
-                  ios_backgroundColor="#3e3e3e"
+                  ios_backgroundColor="#D9D9D9"
+                  style={{ transform: [{ scaleX: 0.7 }, { scaleY: 0.7 }] }}
                   onValueChange={toggleSwitch}
                   value={isEnabled}
                 />

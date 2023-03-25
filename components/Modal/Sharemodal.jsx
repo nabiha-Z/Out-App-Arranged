@@ -2,12 +2,12 @@ import tw from "twrnc";
 import { useState } from "react";
 import * as Animatable from "react-native-animatable";
 import { View, Modal, TouchableOpacity, Text, Dimensions } from "react-native";
-import { Checkbox } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
 import { EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../styles/globalStyles";
 import CustomTextInput from "../InputField/searchField";
 import FriendCheckbox from "../Checkbox/checkbox";
+import CheckBox from "react-native-check-box";
 
 export default function Sharemodal({ open, setOpen }) {
   const [checked, setChecked] = useState(false);
@@ -58,19 +58,19 @@ export default function Sharemodal({ open, setOpen }) {
               <Text style={[tw`ml-4 font-semibold`, globalStyles.poppinsFont]}>
                 Select All
               </Text>
-              <Checkbox
-                status={checked ? "checked" : "unchecked"}
+
+              <CheckBox
+                onClick={() => setChecked(!checked)}
+                isChecked={checked}
                 disabled={false}
-                onAnimationType="fill"
-                offAnimationType="fade"
-                color="#1180B9"
-                onPress={() => setChecked(!checked)}
+                uncheckedCheckBoxColor="#CBCBCB"
+                checkedCheckBoxColor="#1180B9"
               />
             </View>
             <ScrollView style={tw`h-${windowHeight * 0.2} px-5 `}>
               <View>
                 {friends.map((item) => (
-                  <FriendCheckbox item={item} select={checked} key={item}/>
+                  <FriendCheckbox item={item} select={checked} key={item} />
                 ))}
               </View>
 

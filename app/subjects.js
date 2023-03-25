@@ -30,7 +30,7 @@ export default function Subjects() {
   const Tabs = ({ item, key }) => {
     return (
       <TouchableOpacity
-        key={key}
+        key={item._id}
         style={[
           tw`px-4 h-9 m-1 rounded-full items-center justify-center ${
             item.active ? "bg-[#013B4F]" : "bg-[#BDBDBD]"
@@ -66,7 +66,7 @@ export default function Subjects() {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={tw`flex flex-row m-3 justify-between items-center`}>
           {categories.map((item) => (
-            <Tabs item={item} key={item.key} />
+            <Tabs item={item} />
           ))}
         </View>
       </ScrollView>

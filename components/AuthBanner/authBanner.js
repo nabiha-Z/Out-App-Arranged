@@ -10,9 +10,8 @@ import Vector1 from "../../assets/images/vector.png";
 import Vector2 from "../../assets/images/vector-2.png";
 import blurBox from "../../assets/images/blur-rectangle.png";
 import background from "../../assets/images/ellipse.png";
-import { useNavigation } from "@react-navigation/native";
 import { globalStyles } from "../../styles/globalStyles";
-import { Link, Stack, useRouter } from "expo-router";
+import { Link, Stack, useRouter, useNavigation } from "expo-router";
 
 export default function Banner({ operation, header }) {
   const pageCheck = operation === "Sign Up" ? true : false;
@@ -37,15 +36,15 @@ export default function Banner({ operation, header }) {
       >
         <Image source={LeftArrowIcon} style={tw`w-5 h-5`} />
       </TouchableOpacity>
-      <Image
-        source={Vector2}
-        style={[authStyles.vector2, { top: windowHeight * 0.2 }]}
-      />
 
       <Image
-        source={Vector1}
-        style={[authStyles.vector1, { top: windowHeight * 0.213 }]}
+        source={Vector2}
+        style={[authStyles.vector2, { top: windowHeight * 0.184 }]}
       />
+      <View style={[authStyles.vector1, { top: windowHeight * 0.198 }]}>
+        <Image source={Vector1} />
+      </View>
+
       <View style={tw`items-center `}>
         <Image
           source={blurBox}

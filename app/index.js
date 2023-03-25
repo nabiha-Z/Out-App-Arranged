@@ -17,9 +17,8 @@ import { useRouter, Stack } from "expo-router";
 export default function LoadingScreen() {
   const router = useRouter();
   const windowHeight = Dimensions.get("window").height;
+  const windowWidth = Dimensions.get("window").width;
   const [startAnimation, setAnimation] = useState(new Animated.Value(0));
-  const scaleLogo = useRef(new Animated.Value(1)).current;
-  const startTitle = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     Animated.timing(startAnimation, {
@@ -37,13 +36,13 @@ export default function LoadingScreen() {
       <Stack.Screen options={{ headerShown: false }} />
       <Image
         source={BackgroundMask}
-        style={(homeStyles.bgImage, StyleSheet.absoluteFill)}
+        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
       />
 
       <View style={tw`flex items-center`}>
         <Image
           source={Overlay}
-          style={(homeStyles.bgImage, StyleSheet.absoluteFill)}
+          style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
         />
         <Animated.View
           animation="fadeIn"

@@ -16,18 +16,19 @@ export const authStyles = StyleSheet.create({
   vector1: {
     position: "absolute",
     zIndex: 2,
-    left: "31.75%",
+    left: "31.45%",
     right: "58.53%",
     bottom: "75.77%",
     shadowColor: "#000",
     shadowOpacity: 0.4,
     shadowRadius: 6,
     shadowOffset: {
-      width: 0,
+      width: 2,
       height: 4,
     },
     transform: [{ rotate: "-1.62deg" }],
   },
+
   vector2: {
     position: "absolute",
     left: "34.2%",
@@ -36,16 +37,11 @@ export const authStyles = StyleSheet.create({
     bottom: "81.23%",
     transform: [{ rotate: "-1.62deg" }],
   },
+
   transparentBox: {
     position: "absolute",
-    shadowColor: "#626262",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.03,
-    shadowRadius: 24,
     overflow: "hidden",
+    borderRadius: 50,
   },
 
   content: {

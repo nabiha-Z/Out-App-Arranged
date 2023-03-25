@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
+  Platform,
 } from "react-native";
 import { useNavigation, Stack } from "expo-router";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -52,7 +53,10 @@ export default function ChatScreen() {
             backgroundColor: "rgb(241, 245, 245)",
             height: 140,
           },
-          headerTitleStyle: globalStyles.screenHeaderStyles,
+          headerTitleStyle: [
+            globalStyles.screenHeaderStyles,
+            { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+          ],
         }}
       />
 

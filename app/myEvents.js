@@ -23,7 +23,10 @@ export default function MyEvents() {
             backgroundColor: "white",
             height: 130,
           },
-          headerTitleStyle: globalStyles.screenHeaderStyles,
+          headerTitleStyle: [
+            globalStyles.screenHeaderStyles,
+            { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+          ],
         }}
       />
       <Tab.Navigator

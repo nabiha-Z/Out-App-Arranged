@@ -4,6 +4,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
   Dimensions,
 } from "react-native";
 import tw from "twrnc";
@@ -18,15 +19,23 @@ import { globalStyles } from "../styles/globalStyles";
 
 export default function Home() {
   const windowHeight = Dimensions.get("window").height;
+  const windowWidth = Dimensions.get("window").width;
+
   const router = useRouter();
 
   return (
-    <View>
+    <ScrollView style={tw`h-${windowHeight * 0.78}`}>
       <Stack.Screen options={{ headerShown: false }} />
-      <Image source={BackgroundMask} style={StyleSheet.absoluteFill} />
+      <Image
+        source={BackgroundMask}
+        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+      />
 
       <View style={tw`flex items-center`}>
-        <Image source={TopOverlay} style={StyleSheet.absoluteFill} />
+        <Image
+          source={TopOverlay}
+          style={tw`w-${windowWidth * 0.26} absolute`}
+        />
         <View style={[homeStyles.overlay, { height: windowHeight * 1.7 }]} />
 
         <View
@@ -48,7 +57,11 @@ export default function Home() {
         </View>
       </View>
 
-      <View style={[tw`m-8 mb-2 ml-14`]}>
+      <View
+        style={[
+          tw`m-8 mb-2 ml-${windowWidth * 0.04} pt-2 w-${windowWidth * 0.15}`,
+        ]}
+      >
         <Text
           style={[
             homeStyles.text,
@@ -59,24 +72,20 @@ export default function Home() {
           Find or create
         </Text>
         <Text style={[homeStyles.text]}>your events</Text>
-        <Text style={[tw`mt-4 text-[13px]`, globalStyles.poppinsFont]}>
+        <Text style={[tw`mt-4 text-[13px] w-72`, globalStyles.poppinsFont]}>
           This is the best app for events management you can find the available
           events nearby locations now!
         </Text>
       </View>
 
-      <View style={[tw`ml-10`, { marginTop: windowHeight * 0.02 }]}>
-          <TouchableOpacity
-            style={[tw`rounded-full p-3 mt-9 w-72`, homeStyles.startButton]}
-            onPress={() => router.push("/signup")}
-          >
-            <Text
-              style={[tw`text-white text-center`, globalStyles.poppinsFont]}
-            >
-              Get Started
-            </Text>
-          </TouchableOpacity>
-      </View>
-    </View>
+      <TouchableOpacity
+        style={tw`self-center rounded-full p-3 mt-9 w-72 bg-[#013B4F] mb-5`}
+        onPress={() => router.push("/signup")}
+      >
+        <Text style={[tw`text-white text-center`, globalStyles.poppinsFont]}>
+          Get Started
+        </Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }

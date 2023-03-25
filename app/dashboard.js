@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import { useRef } from "react";
-import { Dimensions, View, Text, Animated } from "react-native";
+import { Dimensions, View, Text, Animated, Platform } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../components/TabNavigator/home";
@@ -61,7 +61,7 @@ export default function Dashobard() {
             tabBarIcon: ({ focused }) => (
               <View
                 style={[
-                  tw`flex items-center`,
+                  tw`flex items-center w-15`,
                   {
                     position: "absolute",
                     top: 18,
@@ -101,14 +101,17 @@ export default function Dashobard() {
           options={{
             title: "Chats list",
             headerStyle: {
-              height: 110,
+              height: 100,
             },
-            headerTitleStyle: globalStyles.tabHeaderStyles,
+            headerTitleStyle: [
+              globalStyles.tabHeaderStyles,
+              { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+            ],
 
             tabBarIcon: ({ focused }) => (
               <View
                 style={[
-                  tw`flex items-center`,
+                  tw`flex items-center justify-center w-15`,
                   {
                     position: "absolute",
                     top: 20,
@@ -165,7 +168,7 @@ export default function Dashobard() {
                   borderRadius: 30,
                   justifyContent: "center",
                   alignItems: "center",
-                  marginBottom: Platform.OS == "android" ? 90 : 30,
+                  marginBottom: 90,
                   borderWidth: 7,
                   borderColor: "#f3f4f6",
                 }}
@@ -192,12 +195,15 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: globalStyles.tabHeaderStyles,
+            headerTitleStyle: [
+              globalStyles.tabHeaderStyles,
+              { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+            ],
             headerLeft: null,
             tabBarIcon: ({ focused }) => (
               <View
                 style={[
-                  tw`flex items-center`,
+                  tw`flex items-center w-15`,
                   {
                     position: "absolute",
                     top: 20,
@@ -238,11 +244,11 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: [globalStyles.tabHeaderStyles, { left: 140 }],
+            headerTitleStyle: [globalStyles.tabHeaderStyles, { marginLeft: Platform.OS === "ios" ? 0 : 118 },],
             tabBarIcon: ({ focused }) => (
               <View
                 style={[
-                  tw`flex items-center`,
+                  tw`flex items-center w-15`,
                   {
                     position: "absolute",
                     top: 20,

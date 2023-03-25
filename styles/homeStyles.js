@@ -27,8 +27,8 @@ export const homeStyles = StyleSheet.create({
   text: {
     fontFamily: "Poppins-Regular",
     fontWeight: "600",
-    fontSize: 30,
-    lineHeight: 34,
+    fontSize: 31,
+    lineHeight: 40,
     letterSpacing: 0.4,
     color: "#1180B9",
     width: 500,

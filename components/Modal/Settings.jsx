@@ -1,12 +1,6 @@
 import tw from "twrnc";
 import { useState } from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  Modal,
-  Switch,
-} from "react-native";
+import { View, TouchableOpacity, Text, Modal, Switch } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { globalStyles } from "../../styles/globalStyles";
 import {
@@ -149,8 +143,9 @@ export default function Settings({ open, setOpen }) {
                   <Switch
                     trackColor={{ false: "#D9D9D9", true: "#1180B9" }}
                     thumbColor={isEnabled ? "#FAFBFB" : "#f4f3f4"}
-                    ios_backgroundColor="#3e3e3e"
+                    ios_backgroundColor="#D9D9D9"
                     onValueChange={toggleSwitch}
+                    style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
                     value={isEnabled}
                   />
                 </View>

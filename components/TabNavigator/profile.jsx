@@ -37,7 +37,7 @@ export default function Profile() {
               </Text>
               <Text
                 style={[
-                  tw`text-gray-300 text-center text-sm font-light`,
+                  tw`text-gray-300 text-center text-sm`,
                   globalStyles.poppinsFont,
                 ]}
               >
@@ -55,20 +55,14 @@ export default function Profile() {
             </View>
           </View>
 
-          <TouchableOpacity>
-            <MaterialIcons
-              name="edit"
-              size={24}
-              color="white"
-              style={[
-                tw`p-3 rounded-full`,
-                { backgroundColor: "#1180B9", marginTop: -45 },
-              ]}
-            />
+          <TouchableOpacity
+            style={tw`flex w-13 h-13 bg-[#1180B9] rounded-full mt-[-45px] justify-center items-center`}
+          >
+            <MaterialIcons name="edit" size={24} color="white" />
           </TouchableOpacity>
         </View>
 
-        <View style={tw`m-10`}>
+        <View style={tw`flex m-10 justify-center self-center`}>
           <Buttons title="Payment Information" icon="wallet" pageRedirect="" />
           <Buttons title="Setting" icon="settings-sharp" pageRedirect="" />
 

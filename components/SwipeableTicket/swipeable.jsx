@@ -31,8 +31,8 @@ export default function SwipeableTicket({ item }) {
       <Swipeable renderRightActions={rightSwipe}>
         <View
           style={tw`flex w-[${
-            windowWidth / 4
-          }] items-center justify-center my-4 px-3`}
+            windowWidth / 4.4
+          }] items-center justify-center my-5 px-3`}
         >
           <Image
             source={rectangles[Math.floor(Math.random() * 3) + 0]}
@@ -49,10 +49,7 @@ export default function SwipeableTicket({ item }) {
                 {priority}
               </Text>
               <Text
-                style={[
-                  tw`text-white font-bold text-lg `,
-                  globalStyles.interFont,
-                ]}
+                style={[tw`text-white text-lg `, globalStyles.interFontBold]}
               >
                 {name}
               </Text>

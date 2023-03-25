@@ -1,14 +1,30 @@
 {
   "expo": {
     "scheme": "out-app-arranged",
+    "orientation": "portrait",
+    "icon": "./assets/images/Out-Logo.png",
+    "splash": {
+      "image": "./assets/images/out-logo-dark.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff",
+      "width": "60%"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
     "extra": {
       "eas": {
         "projectId": "b65e86eb-ed6a-48a4-b154-d0eeef633b89"
       }
     },
+    
     "owner": "fyp-22",
     "android": {
-      "package": "outapparranged.M24"
+      "package": "outapparranged.M24",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/Out-Logo.png",
+        "backgroundColor": "black"
+      }
     }
   }
 }

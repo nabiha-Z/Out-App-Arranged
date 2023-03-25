@@ -83,12 +83,16 @@ export default function Event() {
       <Stack.Screen options={{ title: "" }} />
       <Image
         source={backgroundImage}
-        style={(globalStyles.bgImage, StyleSheet.absoluteFill)}
+        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
       />
-      <Image source={overlay} style={StyleSheet.absoluteFill} />
+      <Image
+        source={overlay}
+        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+      />
       <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-2`}>
         <View
-          style={tw`flex flex-row w-full justify-between items-center mb-6 mt-16 px-6`}
+          style={tw`flex flex-row w-full justify-between items-center
+           px-${windowWidth * 0.04}  mb-6 mt-16`}
         >
           <View style={tw`p-2`}>
             {user && (
@@ -119,7 +123,7 @@ export default function Event() {
 
         <View style={tw`flex justify-center items-center pt-2 pb-10`}>
           <View
-            style={[tw`bg-white p-5 rounded-2xl px-8`, globalStyles.shadow]}
+            style={[tw`bg-white p-5 rounded-2xl px-${windowWidth*0.02}`, globalStyles.shadow]}
           >
             <View style={tw`flex flex-row justify-between items-center`}>
               <View>
@@ -144,6 +148,7 @@ export default function Event() {
                 <Entypo name="forward" size={24} color="#1180B9" />
               </TouchableOpacity>
             </View>
+            
             <View style={tw`flex flex-row mt-3 w-60 items-center`}>
               <MaterialIcons name="location-on" size={24} color="#1180B9" />
               <Text
@@ -159,7 +164,7 @@ export default function Event() {
 
           <View
             style={[
-              tw`bg-white p-5 rounded-2xl mt-4 px-8`,
+              tw`bg-white p-5 rounded-2xl mt-4 px-${windowWidth*0.02}`,
               globalStyles.shadow,
             ]}
           >
@@ -178,14 +183,14 @@ export default function Event() {
 
           <View
             style={[
-              tw`bg-white p-5 rounded-2xl mt-4 mx-4 px-8`,
+              tw` bg-white p-5 rounded-2xl mt-4 mx-4 px-${windowWidth*0.015}`,
               globalStyles.shadow,
             ]}
           >
             <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
               Additional Information
             </Text>
-            <Text style={[tw`ml-1 text-xs`, globalStyles.poppinsFont]}>
+            <Text style={[tw`ml-1 text-xs w-68`, globalStyles.poppinsFont]}>
               {event.info}
             </Text>
           </View>
