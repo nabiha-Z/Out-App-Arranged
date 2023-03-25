@@ -70,7 +70,7 @@ export default function Sharemodal({ open, setOpen }) {
             <ScrollView style={tw`h-${windowHeight * 0.2} px-5 `}>
               <View>
                 {friends.map((item) => (
-                  <FriendCheckbox item={item} select={checked} />
+                  <FriendCheckbox item={item} select={checked} key={item}/>
                 ))}
               </View>
 

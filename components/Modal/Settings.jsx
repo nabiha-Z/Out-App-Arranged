@@ -98,7 +98,7 @@ export default function Settings({ open, setOpen }) {
 
                 <View
                   style={tw`${
-                    dropdown ? "visible" : "hidden"
+                    !dropdown ? "" : "hidden"
                   } mx-2 mb-4 justify-center`}
                 >
                   <View style={tw`flex-row justify-between items-center`}>

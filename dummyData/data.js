@@ -125,6 +125,6 @@ export const tabsData = {
     data: <Boolean />,
   },
   tasks: {
-    data: "Tasks",
+    data: <Choices />,
   },
 };

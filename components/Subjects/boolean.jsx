@@ -9,8 +9,9 @@ export default function Boolean() {
   ];
   return (
     <View style={tw`flex justify-center items-center pb-20`}>
-      {questions.map((item) => (
+      {questions.map((item, index) => (
         <View
+          key={index}
           style={[
             tw`bg-white rounded-lg w-66 h-46 m-2 mb-3`,
             globalStyles.shadow,

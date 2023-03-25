@@ -164,16 +164,13 @@ export default function Event() {
             ]}
           >
             <Text
-              style={[
-                tw`text-[#1180B9] font-[600] text-[14px]`,
-                globalStyles.poppinsFont,
-              ]}
+              style={[tw`text-[#1180B9] text-[14px]`, globalStyles.poppinsFont]}
             >
               Event's Time
             </Text>
             <View style={tw`flex flex-row mt-3 w-60 items-center`}>
               <Ionicons name="md-calendar" size={20} color="black" />
-              <Text style={[tw`ml-1 font-xs`, globalStyles.poppinsFont]}>
+              <Text style={[tw`ml-1 text-xs`, globalStyles.poppinsFont]}>
                 {event.time}
               </Text>
             </View>
@@ -200,7 +197,12 @@ export default function Event() {
           contentContainerStyle={tw`py-15 pt-5 flex justify-between items-center `}
         >
           {events.map((item) => (
-            <EventTicket item={item} tickets={tickets} marginRight="7" />
+            <EventTicket
+              item={item}
+              tickets={tickets}
+              marginRight="7"
+              key={item._id}
+            />
           ))}
         </ScrollView>
       </ScrollView>

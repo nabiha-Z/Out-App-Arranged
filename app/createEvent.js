@@ -15,6 +15,7 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import * as FileSystem from "expo-file-system";
 
 import { events } from "../dummyData/data";
 import { globalStyles } from "../styles/globalStyles";
@@ -42,14 +43,33 @@ export default function NewEvent() {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1,
+      aspect: [4, 5],
+      quality: 0.5,
+      allowedFileTypes: ["jpg", "png"],
     });
 
+    const { assets } = result;
     if (!result.canceled) {
-      setFile(result.uri);
+      let fileInfo = await FileSystem.getInfoAsync(assets[0].uri);
+      let fileSize = fileInfo.size / 1024 / 1024;
+
+      if (fileSize <= 5) {
+        const { assets } = result;
+        setFile(assets[0].uri);
+      } else {
+        alert(
+          "Please select an image that is less than or equal to 5MB in size."
+        );
+      }
+    } else {
+      setFile(null);
     }
   };
+
+  const removeFile = () => {
+    setFile(null);
+  };
+
   return (
     <View style={tw`bg-white`}>
       <Stack.Screen
@@ -103,13 +123,14 @@ export default function NewEvent() {
                 size={40}
                 color="#1180B9"
               />
-
-              {file && (
-                <Text style={tw`text-center text-xs text-[#D5EDFA]`}>
-                  1 file attached
-                </Text>
-              )}
             </TouchableOpacity>
+            {file && (
+              <TouchableOpacity onPress={() => removeFile()}>
+                <Text style={tw`text-center text-[10px] text-[#3FB544] mb-2`}>
+                  1 file attached (Tap to remove)
+                </Text>
+              </TouchableOpacity>
+            )}
 
             <Text style={[tw`text-[#707070] `, globalStyles.poppinsFont]}>
               Choose files here
@@ -191,7 +212,12 @@ export default function NewEvent() {
             contentContainerStyle={tw`py-10 flex justify-between items-center `}
           >
             {events.map((item) => (
-              <EventTicket item={item} tickets={tickets} marginRight="7" />
+              <EventTicket
+                item={item}
+                tickets={tickets}
+                marginRight="7"
+                key={item._id}
+              />
             ))}
           </ScrollView>
           <View style={tw`bg-[#F4FAFA] p-10 w-full`}>

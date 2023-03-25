@@ -75,7 +75,7 @@ export default function Banner({ operation, header }) {
 
             <TouchableOpacity
               style={authStyles.authButtons}
-              onPress={() => router.push("/dashboard")}
+              onPress={() => router.push("/details")}
             >
               <Image source={AppleIcon} style={tw`m-6 w-5 h-5`} />
               <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>
@@ -85,7 +85,7 @@ export default function Banner({ operation, header }) {
 
             <TouchableOpacity
               style={authStyles.authButtons}
-              onPress={() => router.push("/dashboard")}
+              onPress={() => router.push("/chat")}
             >
               <Image source={FacebookIcon} style={tw`m-6 w-5 h-5`} />
               <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>

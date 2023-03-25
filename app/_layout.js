@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Stack, Tabs } from "expo-router";
 import { globalStyles } from "../styles/globalStyles";
 import { useEffect } from "react";
 import * as Font from "expo-font";
@@ -18,15 +18,18 @@ export default function Layout() {
   }, []);
 
   return (
-    <Stack
-      initialRouteName="index"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "white",
-          height: 110,
-        },
-        // headerTitleStyle: globalStyles.screenHeaderStyles,
-      }}
-    />
+    <>
+      <Stack
+        initialRouteName="index"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "white",
+            height: 110,
+          },
+          // headerTitleStyle: globalStyles.screenHeaderStyles,
+        }}
+      />
+      
+    </>
   );
 }
