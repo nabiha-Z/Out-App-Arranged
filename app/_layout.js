@@ -1,5 +1,4 @@
-import { Stack, Tabs } from "expo-router";
-import { globalStyles } from "../styles/globalStyles";
+import { Stack } from "expo-router";
 import { useEffect } from "react";
 import * as Font from "expo-font";
 
@@ -29,7 +28,6 @@ export default function Layout() {
           // headerTitleStyle: globalStyles.screenHeaderStyles,
         }}
       />
-      
     </>
   );
 }

@@ -82,7 +82,7 @@ export const globalStyles = StyleSheet.create({
 
   screenHeaderStyles: {
     fontFamily: "Poppins-Regular",
-    fontWeight: 600,
+    fontWeight: "600",
     fontSize: 16,
     textAlign: "center",
     letterSpacing: 1,
