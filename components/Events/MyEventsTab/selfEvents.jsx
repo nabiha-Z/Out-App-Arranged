@@ -7,6 +7,8 @@ import { myEvents } from "../../../dummyData/data";
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from "../../../styles/globalStyles";
 import { Link, useRouter } from "expo-router";
+
+
 export default function SelfEvents() {
   const router = useRouter();
   return (

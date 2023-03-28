@@ -39,9 +39,9 @@ export default function Banner({ operation, header }) {
 
       <Image
         source={Vector2}
-        style={[authStyles.vector2, { top: windowHeight * 0.205 }]}
+        style={[authStyles.vector2, { top: windowHeight * 0.17 }]}
       />
-      <View style={[authStyles.vector1, { top: windowHeight * 0.220 }]}>
+      <View style={[authStyles.vector1, { top: windowHeight * 0.186 }]}>
         <Image source={Vector1} />
       </View>
 
@@ -50,8 +50,8 @@ export default function Banner({ operation, header }) {
           source={blurBox}
           style={[
             authStyles.transparentBox,
-            
-            { width: windowWidth * 0.98, top: windowHeight * 0.007},
+
+            { width: windowWidth * 0.98, top: windowHeight * 0.007 },
           ]}
         />
         <View style={authStyles.content}>
@@ -75,7 +75,7 @@ export default function Banner({ operation, header }) {
 
             <TouchableOpacity
               style={authStyles.authButtons}
-              onPress={() => router.push("/details")}
+              onPress={() => router.push("/dashboard")}
             >
               <Image source={AppleIcon} style={tw`m-6 w-5 h-5`} />
               <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>
@@ -85,7 +85,7 @@ export default function Banner({ operation, header }) {
 
             <TouchableOpacity
               style={authStyles.authButtons}
-              onPress={() => router.push("/chat")}
+              onPress={() => router.push("/dashboard")}
             >
               <Image source={FacebookIcon} style={tw`m-6 w-5 h-5`} />
               <Text style={[tw`text-sm ml-3`, globalStyles.poppinsFont]}>

@@ -1,21 +1,43 @@
-import { useLayoutEffect } from "react";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import ParticipatingEvents from "../components/Events/MyEventsTab/participatingEvent";
-import SelfEvents from "../components/Events/MyEventsTab/selfEvents";
+import { useEffect, useLayoutEffect, useState } from "react";
+import tw from "twrnc";
+import { Stack } from "expo-router";
+import { View } from "react-native";
+import { useNavigation } from "expo-router";
+
 import TopHeader from "../components/Navigation/topHeader";
-import { Stack, useNavigation } from "expo-router";
 import { globalStyles } from "../styles/globalStyles";
 
-const Tab = createMaterialTopTabNavigator();
+import ParticipatingEvents from "../components/Events/MyEventsTab/participatingEvent";
+import SelfEvents from "../components/Events/MyEventsTab/selfEvents";
+import TabButtons from "../components/TopTabNavigator/eventTabs";
 
-export default function MyEvents() {
+export default function EventsList() {
+  const [currentContent, setCurrentContent] = useState();
+
   const navigation = useNavigation();
   useLayoutEffect(() => {
     TopHeader({ navigation });
   }, []);
 
+  useEffect(() => {
+    setCurrentContent(<SelfEvents />);
+  }, []);
+
+  const [tabs, setTabs] = useState([
+    {
+      title: "Created by me",
+      content: <SelfEvents />,
+      active: true,
+    },
+    {
+      title: "Participating",
+      content: <ParticipatingEvents />,
+      active: false,
+    },
+  ]);
+
   return (
-    <>
+    <View style={tw`bg-white`}>
       <Stack.Screen
         options={{
           title: "My Events",
@@ -29,19 +51,24 @@ export default function MyEvents() {
           ],
         }}
       />
-      <Tab.Navigator
-        screenOptions={{
-          labelStyle: { fontSize: 14 },
-          tabStyle: { flex: 1, justifyContent: "center" },
-          indicatorStyle: {
-            marginHorizontal: "5%",
-            width: "40%",
-          },
-        }}
-      >
-        <Tab.Screen name="Created by me" component={SelfEvents} />
-        <Tab.Screen name="Participating" component={ParticipatingEvents} />
-      </Tab.Navigator>
-    </>
+      <View style={tw`flex flex-row justify-center items-center`}>
+        <TabButtons
+          currentTab={tabs[0]}
+          tabs={tabs}
+          setTabs={setTabs}
+          setCurrentContent={setCurrentContent}
+          border='border-r rounded-tr-lg'
+        />
+        <TabButtons
+          currentTab={tabs[1]}
+          tabs={tabs}
+          setTabs={setTabs}
+          setCurrentContent={setCurrentContent}
+          border='border-l rounded-tl-lg '
+        />
+      </View>
+
+      {currentContent}
+    </View>
   );
 }

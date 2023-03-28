@@ -29,7 +29,7 @@ export default function SharedEvents() {
             </Text>
             <Text style={tw`italic text-xs text-stone-400`}>{item.ticket}</Text>
           </View>
-          <View style={tw`flex justify-end self-end z-30 ml-[-2rem]`}>
+          <View style={tw`flex justify-end self-end z-30 ml-[-1.3rem]`}>
             <Image source={user2} style={tw`w-6 h-6 rounded-full`} />
             <Text
               style={[tw`text-[#1180B9] text-xs `, globalStyles.poppinsFont]}

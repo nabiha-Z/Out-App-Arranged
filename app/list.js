@@ -1,25 +1,46 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import tw from "twrnc";
 import { Stack } from "expo-router";
+import { View } from "react-native";
 import { useNavigation } from "expo-router";
-// import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import TopHeader from "../components/Navigation/topHeader";
 import { globalStyles } from "../styles/globalStyles";
-import SharedEvents from "../components/Events/SharedEventsTab/sharedEvents";
 
-// const Tab = createMaterialTopTabNavigator();
+import SelfEvents from "../components/Events/MyEventsTab/selfEvents";
+import SharedEvents from '../components/Events/SharedEventsTab/sharedEvents'
+import TabButtons from "../components/TopTabNavigator/eventTabs";
 
 export default function EventsList() {
+  const [currentContent, setCurrentContent] = useState();
+
   const navigation = useNavigation();
   useLayoutEffect(() => {
     TopHeader({ navigation });
   }, []);
 
+  useEffect(() => {
+    setCurrentContent(<SharedEvents />);
+  }, []);
+
+  const [tabs, setTabs] = useState([
+    {
+      title: "Shared with you",
+      content: <SharedEvents />,
+      active: true,
+    },
+    {
+      title: "Saved",
+      content: <SelfEvents />,
+      active: false,
+    },
+  ]);
+
   return (
-    <>
+    <View style={tw`bg-white`}>
       <Stack.Screen
         options={{
-          title: "Events",
+          title: "Event list",
           headerStyle: {
             backgroundColor: "white",
             height: 130,
@@ -30,20 +51,24 @@ export default function EventsList() {
           ],
         }}
       />
-      {/* <Tab.Navigator
-        screenOptions={{
-          labelStyle: { fontSize: 14 },
-          tabStyle: { flex: 1, justifyContent: "center" },
-          indicatorStyle: {
-            marginHorizontal: "5%",
-            width: "40%",
-            fontSize: 40,
-          },
-        }}
-      >
-        <Tab.Screen name="Shared with you" component={SharedEvents} />
-        <Tab.Screen name="Saved" component={SharedEvents} />
-      </Tab.Navigator> */}
-    </>
+      <View style={tw`flex flex-row justify-center items-center`}>
+        <TabButtons
+          currentTab={tabs[0]}
+          tabs={tabs}
+          setTabs={setTabs}
+          setCurrentContent={setCurrentContent}
+          border='border-r rounded-tr-lg'
+        />
+        <TabButtons
+          currentTab={tabs[1]}
+          tabs={tabs}
+          setTabs={setTabs}
+          setCurrentContent={setCurrentContent}
+          border='border-l rounded-tl-lg '
+        />
+      </View>
+
+      {currentContent}
+    </View>
   );
 }

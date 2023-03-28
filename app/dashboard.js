@@ -1,14 +1,15 @@
 import tw from "twrnc";
 import { useRef } from "react";
+import { Stack } from "expo-router";
 import { Dimensions, View, Text, Animated, Platform } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import Home from "../components/TabNavigator/home";
-import Profile from "../components/TabNavigator/profile";
-import Messages from "../components/TabNavigator/messages";
-import MyTickets from "../components/TabNavigator/tickets";
+
+import Home from "../components/BottomTabNavigator/home";
+import Profile from "../components/BottomTabNavigator/profile";
+import Messages from "../components/BottomTabNavigator/messages";
+import MyTickets from "../components/BottomTabNavigator/tickets";
 import { globalStyles } from "../styles/globalStyles";
-import { Stack } from "expo-router";
 
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
