@@ -39,9 +39,9 @@ export default function Banner({ operation, header }) {
 
       <Image
         source={Vector2}
-        style={[authStyles.vector2, { top: windowHeight * 0.184 }]}
+        style={[authStyles.vector2, { top: windowHeight * 0.205 }]}
       />
-      <View style={[authStyles.vector1, { top: windowHeight * 0.198 }]}>
+      <View style={[authStyles.vector1, { top: windowHeight * 0.220 }]}>
         <Image source={Vector1} />
       </View>
 
@@ -50,7 +50,8 @@ export default function Banner({ operation, header }) {
           source={blurBox}
           style={[
             authStyles.transparentBox,
-            { height: windowHeight * 0.8, width: windowWidth * 0.98 },
+            
+            { width: windowWidth * 0.98, top: windowHeight * 0.007},
           ]}
         />
         <View style={authStyles.content}>

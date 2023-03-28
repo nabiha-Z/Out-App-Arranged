@@ -20,7 +20,6 @@ export const homeStyles = StyleSheet.create({
     height: 100,
   },
   overlay: {
-    ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(255,255,255,0.94)",
   },
 

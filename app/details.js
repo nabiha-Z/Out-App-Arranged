@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  StyleSheet,
   Dimensions,
 } from "react-native";
 import {
@@ -83,18 +82,18 @@ export default function Event() {
       <Stack.Screen options={{ title: "" }} />
       <Image
         source={backgroundImage}
-        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+        style={tw`w-${windowWidth * 0.25} h-${windowHeight * 0.25} absolute`}
       />
       <Image
         source={overlay}
-        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+        style={tw`w-${windowWidth * 0.46} h-${windowHeight * 0.36} absolute`}
       />
       <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-2`}>
         <View
           style={tw`flex flex-row w-full justify-between items-center
-           px-${windowWidth * 0.04}  mb-6 mt-16`}
+           px-${windowWidth * 0.03}  mb-6 mt-20`}
         >
-          <View style={tw`p-2`}>
+          <View style={tw`py-2`}>
             {user && (
               <>
                 <View
@@ -105,7 +104,7 @@ export default function Event() {
                     style={tw`w-13 h-13 rounded-full border border-white`}
                   />
                 </View>
-                <Text style={tw`text-white font-bold ml-[-6px]`}>
+                <Text style={tw`text-white font-bold ml-[-1px]`}>
                   James Miller
                 </Text>
               </>
@@ -121,9 +120,16 @@ export default function Event() {
           </View>
         </View>
 
-        <View style={tw`flex justify-center items-center pt-2 pb-10`}>
+        <View
+          style={tw`flex justify-center items-center pt-2 pb-10 mt-50 px-${
+            windowWidth * 0.04
+          }`}
+        >
           <View
-            style={[tw`bg-white p-5 rounded-2xl px-${windowWidth*0.02}`, globalStyles.shadow]}
+            style={[
+              tw`bg-white p-5 rounded-2xl px-${windowWidth * 0.024}`,
+              globalStyles.shadow,
+            ]}
           >
             <View style={tw`flex flex-row justify-between items-center`}>
               <View>
@@ -148,7 +154,7 @@ export default function Event() {
                 <Entypo name="forward" size={24} color="#1180B9" />
               </TouchableOpacity>
             </View>
-            
+
             <View style={tw`flex flex-row mt-3 w-60 items-center`}>
               <MaterialIcons name="location-on" size={24} color="#1180B9" />
               <Text
@@ -164,7 +170,7 @@ export default function Event() {
 
           <View
             style={[
-              tw`bg-white p-5 rounded-2xl mt-4 px-${windowWidth*0.02}`,
+              tw`bg-white p-5 rounded-2xl mt-4 px-${windowWidth * 0.024}`,
               globalStyles.shadow,
             ]}
           >
@@ -183,7 +189,7 @@ export default function Event() {
 
           <View
             style={[
-              tw` bg-white p-5 rounded-2xl mt-4 mx-4 px-${windowWidth*0.015}`,
+              tw` bg-white p-5 rounded-2xl mt-4 mx-4 px-${windowWidth * 0.015}`,
               globalStyles.shadow,
             ]}
           >
@@ -212,7 +218,7 @@ export default function Event() {
         </ScrollView>
       </ScrollView>
       <TouchableOpacity
-        style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] rounded-full m-4 mt-5`}
+        style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] rounded-full m-4 mt-6`}
         onPress={() => router.push("/cart")}
       >
         <Image source={cartIcon} />

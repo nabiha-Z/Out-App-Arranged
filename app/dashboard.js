@@ -13,9 +13,9 @@ import { Stack } from "expo-router";
 export default function Dashobard() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
   const Tab = createBottomTabNavigator();
+  let windowWidth = Dimensions.get("window").width;
   function getWidth() {
-    let width = Dimensions.get("window").width;
-    width = width - 50;
+    width = windowWidth - 50;
     return width / 5;
   }
   return (
@@ -105,7 +105,7 @@ export default function Dashobard() {
             },
             headerTitleStyle: [
               globalStyles.tabHeaderStyles,
-              { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+              { marginLeft: Platform.OS === "ios" ? 0 : windowWidth / 3 },
             ],
 
             tabBarIcon: ({ focused }) => (
@@ -197,7 +197,7 @@ export default function Dashobard() {
             },
             headerTitleStyle: [
               globalStyles.tabHeaderStyles,
-              { marginLeft: Platform.OS === "ios" ? 0 : 118 },
+              { marginLeft: Platform.OS === "ios" ? 0 : windowWidth / 3 },
             ],
             headerLeft: null,
             tabBarIcon: ({ focused }) => (
@@ -244,7 +244,10 @@ export default function Dashobard() {
             headerStyle: {
               height: 110,
             },
-            headerTitleStyle: [globalStyles.tabHeaderStyles, { marginLeft: Platform.OS === "ios" ? 0 : 118 },],
+            headerTitleStyle: [
+              globalStyles.tabHeaderStyles,
+              { marginLeft: Platform.OS === "ios" ? 0 : windowWidth * 0.38 },
+            ],
             tabBarIcon: ({ focused }) => (
               <View
                 style={[

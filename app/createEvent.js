@@ -32,7 +32,7 @@ export default function NewEvent() {
   const [file, setFile] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
   const tickets = [ticket1, ticket2, ticket3];
-  const containerStyle = tw`flex flex-row justify-between items-center p-1 pb-2 my-2 border-b border-[#E3E3E3] w-66`;
+  const containerStyle = tw`flex flex-row justify-between items-center p-1 pb-2 my-2 border-b border-[#E3E3E3] w-full px-8`;
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   useLayoutEffect(() => {
@@ -177,7 +177,7 @@ export default function NewEvent() {
             />
           </View>
 
-          <View style={tw`w-full items-center bg-[#F4FAFA] px-10 mt-3 py-6`}>
+          <View style={tw`w-full items-center bg-[#F4FAFA] px-8 mt-3 py-6`}>
             <View style={tw`flex-row justify-between w-full items-center`}>
               <View style={tw`flex-row items-center`}>
                 <Text style={globalStyles.poppinsFont}>Paid </Text>
@@ -185,7 +185,7 @@ export default function NewEvent() {
                   trackColor={{ false: "#D9D9D9", true: "#1180B9" }}
                   thumbColor={isEnabled ? "#FAFBFB" : "#f4f3f4"}
                   ios_backgroundColor="#D9D9D9"
-                  style={{ transform: [{ scaleX: 0.7 }, { scaleY: 0.7 }] }}
+                  style={{ transform: [{ scaleX: 1.0 }, { scaleY: 0.9 }] }}
                   onValueChange={toggleSwitch}
                   value={isEnabled}
                 />

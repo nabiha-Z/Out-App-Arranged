@@ -75,7 +75,7 @@ export default function Sharemodal({ open, setOpen }) {
               </View>
 
               <TouchableOpacity
-                style={tw`w-12 h-12 bg-gray-300 m-5 rounded-full p-3 justify-center self-center items-center`}
+                style={tw`w-12 h-12 bg-gray-300 m-10 rounded-full p-3 justify-center self-center items-center`}
                 onPress={() => setOpen(false)}
               >
                 <Ionicons name="close-outline" size={26} color="white" />

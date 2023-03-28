@@ -36,13 +36,13 @@ export default function LoadingScreen() {
       <Stack.Screen options={{ headerShown: false }} />
       <Image
         source={BackgroundMask}
-        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+        style={tw`w-${windowWidth * 0.33} h-${windowHeight * 0.33} absolute`}
       />
 
       <View style={tw`flex items-center`}>
         <Image
           source={Overlay}
-          style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+          style={tw`w-${windowWidth * 0.33} h-${windowHeight * 0.33} absolute`}
         />
         <Animated.View
           animation="fadeIn"

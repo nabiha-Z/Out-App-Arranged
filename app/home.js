@@ -17,6 +17,8 @@ import OutLogo from "../assets/images/out-logo-dark.png";
 import HomeLogo from "../assets/images/home-banner-logo.png";
 import { globalStyles } from "../styles/globalStyles";
 
+import whiteOverlay from "../assets/images/white-overlay.jpeg";
+
 export default function Home() {
   const windowHeight = Dimensions.get("window").height;
   const windowWidth = Dimensions.get("window").width;
@@ -24,68 +26,77 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <ScrollView style={tw`h-${windowHeight * 0.78}`}>
+    <View style={tw`bg-red-100`}>
       <Stack.Screen options={{ headerShown: false }} />
       <Image
         source={BackgroundMask}
-        style={tw`w-${windowWidth * 0.26} h-${windowHeight * 0.26} absolute`}
+        style={tw`w-${windowWidth * 0.31} h-${windowHeight * 0.31} absolute`}
       />
 
-      <View style={tw`flex items-center`}>
-        <Image
-          source={TopOverlay}
-          style={tw`w-${windowWidth * 0.26} absolute`}
-        />
-        <View style={[homeStyles.overlay, { height: windowHeight * 1.7 }]} />
+      <ScrollView style={tw`h-${windowHeight * 0.29}`}>
+        <View style={tw`flex items-center`}>
+          <Image
+            source={TopOverlay}
+            style={tw`w-${windowWidth * 0.26} absolute`}
+          />
+          <View style={[tw`absolute z-20 bg-red-300`, homeStyles.overlay, ,]} />
 
-        <View
-          style={[
-            tw`items-center justify-center`,
-            { marginTop: windowHeight * 0.09 },
-          ]}
-        >
-          <Text
+          <View
             style={[
-              tw`text-black text-sm text-center m-5 mb-9`,
-              globalStyles.poppinsFont,
+              tw`h-${windowHeight} w-${windowWidth} items-center`,
+              homeStyles.overlay,
             ]}
           >
-            Welcome to OUT App!
-          </Text>
-          <Image source={OutLogo} style={tw`m-auto`} />
-          <Image source={HomeLogo} style={tw`m-7`} />
+            <View
+              style={[
+                tw`items-center justify-center`,
+                { marginTop: windowHeight * 0.09 },
+              ]}
+            >
+              <Text
+                style={[
+                  tw`text-black text-sm text-center m-5 mb-9`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Welcome to OUT App!
+              </Text>
+              <Image source={OutLogo} style={tw`m-auto`} />
+              <Image source={HomeLogo} style={tw`m-7`} />
+            </View>
+
+            <View style={[tw`m-8 mb-2 pt-2 w-${windowWidth * 0.15}`]}>
+              <Text
+                style={[
+                  homeStyles.text,
+                  globalStyles.poppinsFontBold,
+                  tw`text-black `,
+                ]}
+              >
+                Find or create
+              </Text>
+              <Text style={[homeStyles.text]}>your events</Text>
+              <Text
+                style={[tw`mt-4 text-[13px] w-65`, globalStyles.poppinsFont]}
+              >
+                This is the best app for events management you can find the
+                available events nearby locations now!
+              </Text>
+            </View>
+
+            <TouchableOpacity
+              style={tw`self-center rounded-full p-3 mt-9 w-72 bg-[#013B4F] mb-5`}
+              onPress={() => router.push("/signup")}
+            >
+              <Text
+                style={[tw`text-white text-center`, globalStyles.poppinsFont]}
+              >
+                Get Started
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-
-      <View
-        style={[
-          tw`m-8 mb-2 ml-${windowWidth * 0.04} pt-2 w-${windowWidth * 0.15}`,
-        ]}
-      >
-        <Text
-          style={[
-            homeStyles.text,
-            globalStyles.poppinsFontBold,
-            tw`text-black`,
-          ]}
-        >
-          Find or create
-        </Text>
-        <Text style={[homeStyles.text]}>your events</Text>
-        <Text style={[tw`mt-4 text-[13px] w-72`, globalStyles.poppinsFont]}>
-          This is the best app for events management you can find the available
-          events nearby locations now!
-        </Text>
-      </View>
-
-      <TouchableOpacity
-        style={tw`self-center rounded-full p-3 mt-9 w-72 bg-[#013B4F] mb-5`}
-        onPress={() => router.push("/signup")}
-      >
-        <Text style={[tw`text-white text-center`, globalStyles.poppinsFont]}>
-          Get Started
-        </Text>
-      </TouchableOpacity>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
