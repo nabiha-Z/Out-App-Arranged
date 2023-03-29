@@ -22,24 +22,26 @@ export default function EventQRModal({ open, setOpen, eventName }) {
     <Modal
       animationType="slide"
       visible={open}
-      style={tw`flex-1 justify-center items-center`}
+      style={tw`flex justify-center items-center `}
     >
-      <Image
+      <View style={tw`h-${windowHeight}`}>
+        <Image
         source={outLogo}
         style={[
-          tw`mt-${windowHeight * 0.08} w-${windowWidth * 0.16} h-${windowHeight * 0.14} ml-${windowWidth * 0.09} absolute`,
+          tw`  mt-${windowHeight * 0.04} w-${windowWidth * 0.25} h-${windowHeight * 0.18} ml-${windowWidth * 0.02} absolute`,
         ]}
       />
-      <View style={tw`justify-center items-center mt-28`}>
-        <Image source={QR} />
-        <Text style={tw`font-semibold`}>{eventName}</Text>
-        <Text style={tw`text-xs`}>Participant's</Text>
-        <TouchableOpacity
-          style={tw`w-12 h-12 bg-stone-400 mt-36 rounded-full p-3 justify-center items-center`}
-          onPress={() => setOpen(false)}
-        >
-          <Ionicons name="close-outline" size={26} color="white" />
-        </TouchableOpacity>
+        <View style={tw`justify-center items-center mt-28`}>
+          <Image source={QR} />
+          <Text style={tw`font-semibold`}>{eventName}</Text>
+          <Text style={tw`text-xs`}>Participant's</Text>
+          <TouchableOpacity
+            style={tw`w-12 h-12 bg-stone-400 mt-36 rounded-full p-3 justify-center items-center`}
+            onPress={() => setOpen(false)}
+          >
+            <Ionicons name="close-outline" size={26} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
     </Modal>
   );

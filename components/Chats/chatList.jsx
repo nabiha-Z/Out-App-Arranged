@@ -1,12 +1,14 @@
 import tw from "twrnc";
-import { useNavigation } from "@react-navigation/native";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { useRouter } from "expo-router";
+import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
+
 import seenVector from "../../assets/images/message-seen-vector.png";
 import { globalStyles } from "../../styles/globalStyles";
-import { Link, useRouter } from "expo-router";
 
 export default function ChatList({ image, username, last_message, time }) {
   const router = useRouter();
+  const windowWidth = Dimensions.get("window").width;
+
   return (
     <TouchableOpacity
       style={tw`flex flex-row border-b border-gray-200 pb-4 pt-2 mb-2`}
@@ -30,7 +32,7 @@ export default function ChatList({ image, username, last_message, time }) {
         </View>
       </View>
 
-      <View style={tw`flex items-end justify-center w-20`}>
+      <View style={tw`flex items-end justify-center w-${windowWidth* 0.08}`}>
         <Text style={tw`text-xs font-light`}>{time}</Text>
       </View>
     </TouchableOpacity>

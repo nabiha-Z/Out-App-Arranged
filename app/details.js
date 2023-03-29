@@ -14,6 +14,7 @@ import {
   Entypo,
   Ionicons,
 } from "@expo/vector-icons";
+import { Stack } from "expo-router";
 import { globalStyles } from "../styles/globalStyles";
 import ShareModal from "../components/Modal/Sharemodal";
 import SettingsModal from "../components/Modal/Settings";
@@ -28,7 +29,6 @@ import ticket3 from "../assets/images/ticket-3.png";
 import cartIcon from "../assets/images/cart-icon.png";
 import { events } from "../dummyData/data";
 import { useNavigation, useRouter } from "expo-router";
-import { Stack } from "expo-router";
 
 export default function Event() {
   const navigation = useNavigation();
@@ -91,7 +91,7 @@ export default function Event() {
       <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-2`}>
         <View
           style={tw`flex flex-row w-full justify-between items-center
-           px-${windowWidth * 0.03}  mb-6 mt-20`}
+           px-${windowWidth * 0.03}  mb-2 mt-80`}
         >
           <View style={tw`py-2`}>
             {user && (
@@ -121,7 +121,7 @@ export default function Event() {
         </View>
 
         <View
-          style={tw`flex justify-center items-center pt-2 pb-10 mt-50 px-${
+          style={tw`flex justify-center items-center pt-2 pb-10 px-${
             windowWidth * 0.04
           }`}
         >

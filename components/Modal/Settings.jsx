@@ -1,6 +1,13 @@
 import tw from "twrnc";
 import { useState } from "react";
-import { View, TouchableOpacity, Text, Modal, Switch } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Modal,
+  Switch,
+  Dimensions,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
 import { globalStyles } from "../../styles/globalStyles";
 import {
@@ -12,6 +19,7 @@ import {
 import CohostModal from "./CohostModal";
 
 export default function Settings({ open, setOpen }) {
+  const windowWidth = Dimensions.get("window").width;
   const [addCohost, setCohost] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
@@ -50,7 +58,9 @@ export default function Settings({ open, setOpen }) {
                 </Text>
 
                 <TouchableOpacity
-                  style={tw`flex flex-row justify-between items-center p-1 pb-5 my-5 border-b border-[#CCCCCC] w-66`}
+                  style={tw`flex flex-row justify-between items-center p-1 pb-5 my-5 border-b border-[#CCCCCC] w-${
+                    windowWidth * 0.2
+                  } `}
                 >
                   <Text style={[tw`text-[#1180B9]`, globalStyles.poppinsFont]}>
                     Scan Tickets

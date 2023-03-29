@@ -26,11 +26,11 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <View style={tw`bg-red-100`}>
+    <View>
       <Stack.Screen options={{ headerShown: false }} />
       <Image
         source={BackgroundMask}
-        style={tw`w-${windowWidth * 0.31} h-${windowHeight * 0.31} absolute`}
+        style={tw`w-${windowWidth * 0.31} h-${windowHeight * 0.25} absolute`}
       />
 
       <ScrollView style={tw`h-${windowHeight * 0.29}`}>
