@@ -7,7 +7,7 @@ import { EvilIcons, AntDesign, Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../styles/globalStyles";
 import CustomTextInput from "../InputField/searchField";
 import FriendCheckbox from "../Checkbox/checkbox";
-import CheckBox from "react-native-check-box";
+import { CheckBox } from "react-native-elements";
 
 export default function Sharemodal({ open, setOpen }) {
   const [checked, setChecked] = useState(false);
@@ -60,11 +60,15 @@ export default function Sharemodal({ open, setOpen }) {
               </Text>
 
               <CheckBox
-                onClick={() => setChecked(!checked)}
-                isChecked={checked}
+                checked={checked}
                 disabled={false}
-                uncheckedCheckBoxColor="#CBCBCB"
-                checkedCheckBoxColor="#1180B9"
+                onAnimationType="fill"
+                offAnimationType="fade"
+                size={20}
+                boxType="square"
+                checkedColor="#1180B9"
+                uncheckedColor="#CBCBCB"
+                onPress={() => setChecked(!checked)}
               />
             </View>
             <ScrollView style={tw`h-${windowHeight * 0.2} px-5 `}>
