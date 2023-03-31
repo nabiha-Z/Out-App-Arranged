@@ -88,10 +88,10 @@ export default function Event() {
         source={overlay}
         style={tw`w-${windowWidth * 0.46} h-${windowHeight * 0.36} absolute`}
       />
-      <ScrollView style={tw`h-[${windowHeight * 0.75}px] p-2`}>
+      <ScrollView style={tw`h-[${windowHeight * 0.94}px] p-2`}>
         <View
           style={tw`flex flex-row w-full justify-between items-center
-           px-${windowWidth * 0.03}  mb-2 mt-80`}
+           px-${windowWidth * 0.01}  mb-2 mt-82`}
         >
           <View style={tw`py-2`}>
             {user && (
@@ -122,12 +122,12 @@ export default function Event() {
 
         <View
           style={tw`flex justify-center items-center pt-2 pb-10 px-${
-            windowWidth * 0.04
+            windowWidth * 0.01
           }`}
         >
           <View
             style={[
-              tw`bg-white p-5 rounded-2xl px-${windowWidth * 0.024}`,
+              tw`bg-white rounded-2xl w-${windowWidth * 0.23} px-9 py-7`,
               globalStyles.shadow,
             ]}
           >
@@ -170,7 +170,7 @@ export default function Event() {
 
           <View
             style={[
-              tw`bg-white p-5 rounded-2xl mt-4 px-${windowWidth * 0.024}`,
+              tw`bg-white rounded-2xl mt-4 w-${windowWidth * 0.23} px-9 py-7`,
               globalStyles.shadow,
             ]}
           >
@@ -189,7 +189,7 @@ export default function Event() {
 
           <View
             style={[
-              tw` bg-white p-5 rounded-2xl mt-4 mx-4 px-${windowWidth * 0.015}`,
+              tw` bg-white rounded-2xl mt-4 mx-4 w-${windowWidth * 0.23} px-9 py-7`,
               globalStyles.shadow,
             ]}
           >
@@ -216,13 +216,15 @@ export default function Event() {
             />
           ))}
         </ScrollView>
+
+        <TouchableOpacity
+          style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] 
+          rounded-full m-4 mt-6 mb-20`}
+          onPress={() => router.push("/cart")}
+        >
+          <Image source={cartIcon} />
+        </TouchableOpacity>
       </ScrollView>
-      <TouchableOpacity
-        style={tw`w-18 h-18 justify-center items-center self-center p-3 bg-[#1180B9] rounded-full m-4 mt-6`}
-        onPress={() => router.push("/cart")}
-      >
-        <Image source={cartIcon} />
-      </TouchableOpacity>
 
       <ShareModal open={open} setOpen={setOpen} />
       <SettingsModal open={showSetting} setOpen={setShowSetting} />

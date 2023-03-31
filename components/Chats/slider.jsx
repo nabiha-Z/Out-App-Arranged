@@ -3,10 +3,10 @@ import { ProgressBar } from "react-native-paper";
 import tw from "twrnc";
 import { globalStyles } from "../../styles/globalStyles";
 
-export default function Slider({ title }) {
+export default function Slider({ title, width, heigth }) {
   return (
     <View
-      style={[tw`bg-white rounded-lg w-50 h-32 m-2 mb-5`, globalStyles.shadow]}
+      style={[tw`bg-white rounded-lg w-${width} h-${heigth} m-2 mb-5`, globalStyles.shadow]}
       key={Math.floor(Math.random() * 3000) + 0}
     >
       <View style={tw`rounded-t-lg p-1 bg-[#013B4F]`}>
@@ -15,7 +15,7 @@ export default function Slider({ title }) {
 
       <TouchableOpacity
         style={[
-          tw`flex-row justify-center rounded-lg m-4 mx-3 bg-white h-6`,
+          tw`flex-row justify-center items-center rounded-lg m-4 mx-3 bg-white h-6`,
           globalStyles.shadow,
         ]}
       >

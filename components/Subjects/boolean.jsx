@@ -13,7 +13,7 @@ export default function Boolean() {
         <View
           key={index}
           style={[
-            tw`bg-white rounded-lg w-66 h-46 m-2 mb-3`,
+            tw`bg-white rounded-lg w-82 h-48 m-2 mb-3`,
             globalStyles.shadow,
           ]}
         >

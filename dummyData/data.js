@@ -116,15 +116,15 @@ export const myEvents = [
 
 export const tabsData = {
   all: {
-    data: <Choices />,
+    data: <Choices width={82} heigth={36} />,
   },
   choices: {
-    data: <Choices />,
+    data: <Choices width={82} heigth={36} />,
   },
   yesNo: {
     data: <Boolean />,
   },
   tasks: {
-    data: <Choices />,
+    data: <Choices width={82} heigth={36} />,
   },
 };

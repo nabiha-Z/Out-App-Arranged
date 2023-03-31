@@ -71,8 +71,8 @@ export default function ChatScreen() {
           showsHorizontalScrollIndicator={false}
           style={tw`p-3 px-7`}
         >
-          <Slider title="What time?" />
-          <Slider title="Available?" />
+          <Slider title="What time?" width={50} heigth={32} />
+          <Slider title="Available?" width={50} heigth={32} />
         </ScrollView>
 
         <View style={tw`px-7 pb-7 w-56`}>
@@ -98,8 +98,6 @@ export default function ChatScreen() {
             <Text style={tw`text-white`}>Yoo!</Text>
           </View>
         </View>
-    
-        
       </ScrollView>
 
       <ChatFooter screen="chat" />

@@ -4,27 +4,22 @@
     "orientation": "portrait",
     "icon": "./assets/images/Out-Logo.png",
     "splash": {
-      "image": "./assets/images/out-logo-dark.png",
+      "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff",
-      "width": "60%"
+      "width":"30%"
     },
     "ios": {
       "supportsTablet": true
     },
     "extra": {
       "eas": {
-        "projectId": "b65e86eb-ed6a-48a4-b154-d0eeef633b89"
+        "projectId": "7aa39117-6eab-49c6-8275-781c5acdc000"
       }
     },
-    
-    "owner": "fyp-22",
+    "owner": "dev1620",
     "android": {
-      "package": "outapparranged.M24",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Out-Logo.png",
-        "backgroundColor": "black"
-      }
+      "package": "outapparranged.M29"
     }
   }
 }
