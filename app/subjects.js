@@ -1,7 +1,12 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import tw from "twrnc";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import { useNavigation, Stack } from "expo-router";
 
 import { tabsData } from "../dummyData/data";
@@ -11,6 +16,8 @@ import TopHeader from "../components/Navigation/topHeader";
 
 export default function Subjects() {
   const navigation = useNavigation();
+  const windowHeight = Dimensions.get("window").height;
+
   const [categories, setCategories] = useState([
     { title: "All", active: true, key: "all" },
     { title: "Multiple Choice", active: false, key: "choices" },
@@ -72,16 +79,11 @@ export default function Subjects() {
       </ScrollView>
 
       <ScrollView
-        style={tw`h-105 m-4 p-5`}
-        contentContainerStyle={tw`justify-between items-center`}
+        style={tw`h-[45rem]`}
+        contentContainerStyle={tw`justify-between items-center m-4 p-5 pb-32`}
       >
         {content}
       </ScrollView>
-      <TouchableOpacity
-        style={tw`bg-[#1180B9] w-12 h-12 rounded-full justify-center self-end items-center m-6`}
-      >
-        <Feather name="plus" size={24} color="white" />
-      </TouchableOpacity>
     </View>
   );
 }

@@ -17,7 +17,6 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 
-import { events } from "../dummyData/data";
 import { globalStyles } from "../styles/globalStyles";
 import ticket1 from "../assets/images/ticket-1.png";
 import ticket2 from "../assets/images/ticket-2.png";
@@ -28,10 +27,21 @@ import { useNavigation, Stack } from "expo-router";
 
 export default function NewEvent() {
   const navigation = useNavigation();
+  const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState("");
   const windowHeight = Dimensions.get("window").height;
   const [file, setFile] = useState(null);
+  const [eventTickets, setEventTickets] = useState([]);
   const [isEnabled, setIsEnabled] = useState(false);
   const tickets = [ticket1, ticket2, ticket3];
+  const [titleDropdown, setTitleDropdown] = useState(false);
+  const [infoDropdown, setInfoDropdown] = useState(true);
+  const [addressDropdown, setAddressDropdown] = useState(false);
+  const [dobDropdown, setDOBDropdown] = useState(false);
+  const [slots, setSlots] = useState(0);
+  const [priority, setPriority] = useState("");
   const containerStyle = tw`flex flex-row justify-between items-center p-1 pb-2 my-2 border-b border-[#E3E3E3] w-full px-8`;
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
@@ -68,6 +78,32 @@ export default function NewEvent() {
 
   const removeFile = () => {
     setFile(null);
+  };
+
+  const addNewTicket = () => {
+    if (name && description && price > 0) {
+      setError("");
+      setEventTickets([
+        ...eventTickets,
+        {
+          item: {
+            name,
+            price,
+            description,
+            slots,
+            priority,
+            _id: eventTickets.length,
+          },
+        },
+      ]);
+      setName("");
+      setPrice(0);
+      setSlots(0);
+      setPriority("");
+      setDescription("");
+    } else {
+      setError("Fill out the required information.");
+    }
   };
 
   return (
@@ -145,36 +181,168 @@ export default function NewEvent() {
             </Text>
           </View>
 
-          <View style={containerStyle}>
+          <TouchableOpacity
+            onPress={() => setTitleDropdown(!titleDropdown)}
+            style={containerStyle}
+          >
             <Text style={[tw`text-[#52829D]`, globalStyles.poppinsFont]}>
               Event Title
             </Text>
+          </TouchableOpacity>
+
+          <View
+            style={tw`${
+              titleDropdown ? "" : "hidden"
+            } mb-4 justify-center  w-full px-14`}
+          >
+            <View style={tw`flex-row justify-between items-center`}>
+              <Text
+                style={[
+                  tw`text-[12px] text-[#868686]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Event Title
+              </Text>
+              <TextInput
+                placeholder="title"
+                style={[
+                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-3 border border-slate-200 m-1`,
+                  globalStyles.poppinsFont,
+                ]}
+              />
+            </View>
           </View>
 
-          <View style={containerStyle}>
+          <TouchableOpacity
+            onPress={() => setAddressDropdown(!addressDropdown)}
+            style={containerStyle}
+          >
             <Text style={[tw`text-[#52829D]`, globalStyles.poppinsFont]}>
               Address
             </Text>
             <Entypo name="location-pin" size={24} color="#52829D" />
+          </TouchableOpacity>
+
+          <View
+            style={tw`${
+              addressDropdown ? "" : "hidden"
+            } mb-4 justify-center  w-full px-14`}
+          >
+            <View style={tw`flex-row justify-between items-center`}>
+              <Text
+                style={[
+                  tw`text-[12px] text-[#868686]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Location
+              </Text>
+              <TextInput
+                placeholder="address"
+                style={[
+                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-3 border border-slate-200 m-1`,
+                  globalStyles.poppinsFont,
+                ]}
+              />
+            </View>
           </View>
 
-          <View style={containerStyle}>
+          <TouchableOpacity
+            onPress={() => setDOBDropdown(!dobDropdown)}
+            style={containerStyle}
+          >
             <Text style={[tw`text-[#52829D]`, globalStyles.poppinsFont]}>
               Date & Time
             </Text>
             <MaterialCommunityIcons name="clock" size={20} color="#52829D" />
+          </TouchableOpacity>
+
+          <View
+            style={tw`${
+              dobDropdown ? "" : "hidden"
+            } mb-4 justify-center  w-full px-14`}
+          >
+            <View style={tw`flex-row justify-between items-center`}>
+              <Text
+                style={[
+                  tw`text-[12px] text-[#868686]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Location
+              </Text>
+              <TextInput
+                placeholder="address"
+                style={[
+                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-4 border border-slate-200 m-1`,
+                  globalStyles.poppinsFont,
+                ]}
+              />
+            </View>
           </View>
 
-          <View style={containerStyle}>
+          <TouchableOpacity
+            onPress={() => setInfoDropdown(!infoDropdown)}
+            style={containerStyle}
+          >
             <Text style={[tw`text-[#52829D]`, globalStyles.poppinsFont]}>
               Additional info
             </Text>
+
             <MaterialIcons
               name="playlist-add"
               size={24}
               color="#52829D"
               style={tw`mr-[-6px]`}
             />
+          </TouchableOpacity>
+
+          <View
+            style={tw`${
+              infoDropdown ? "" : "hidden"
+            } mb-4 justify-center  w-full px-14`}
+          >
+            <View style={tw`flex-row justify-between items-center`}>
+              <Text
+                style={[
+                  tw`text-[12px] text-[#868686]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Slots
+              </Text>
+              <TextInput
+                placeholder="No.of slots"
+                keyboardType="numeric"
+                style={[
+                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-4 border border-slate-200 m-1`,
+                  globalStyles.poppinsFont,
+                ]}
+                value={slots}
+                onChangeText={(number) => setSlots(number)}
+              />
+            </View>
+
+            <View style={tw`flex-row justify-between items-center`}>
+              <Text
+                style={[
+                  tw`text-[12px] text-[#868686]`,
+                  globalStyles.poppinsFont,
+                ]}
+              >
+                Priority
+              </Text>
+              <TextInput
+                placeholder="Reg/VIP/VVIP"
+                style={[
+                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-4 border border-slate-200 m-1`,
+                  globalStyles.poppinsFont,
+                ]}
+                value={priority}
+                onChangeText={(text) => setPriority(text)}
+              />
+            </View>
           </View>
 
           <View style={tw`w-full items-center bg-[#F4FAFA] px-8 mt-3 py-6`}>
@@ -195,13 +363,35 @@ export default function NewEvent() {
                 Tickets
               </Text>
             </View>
+
+            <View style={tw`flex-row justify-between w-full items-center`}>
+              <TextInput
+                style={tw`w-52 rounded-lg bg-white p-2 border border-slate-200 focus:border-teal-600 m-2`}
+                placeholder="Event Title"
+                value={name}
+                onChangeText={(text) => setName(text)}
+              />
+              <TextInput
+                style={tw`w-26 rounded-lg bg-white p-2 border border-slate-200 focus:border-teal-600 m-2`}
+                placeholder="Price in $"
+                keyboardType="numeric"
+                value={price}
+                onChangeText={(number) => setPrice(number)}
+              />
+            </View>
             <Text
               style={[tw`text-[#797979] text-center`, globalStyles.poppinsFont]}
             >
               Description
             </Text>
-            <TextInput style={tw`w-70 bg-white h-20`} />
+            <TextInput
+              style={tw`w-80 bg-white h-20 border border-slate-200 rounded-lg px-3`}
+              value={description}
+              onChangeText={(text) => setDescription(text)}
+            />
+            <Text style={tw`text-[10px] text-red-600 mt-3`}>{error}</Text>
             <TouchableOpacity
+              onPress={() => addNewTicket()}
               style={tw`w-30 h-10 rounded-full p-2 items-center bg-[#1180B9] m-3`}
             >
               <Text style={[tw`text-white`, globalStyles.poppinsFont]}>
@@ -215,12 +405,12 @@ export default function NewEvent() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={tw`py-10 flex justify-between items-center `}
           >
-            {events.map((item) => (
+            {eventTickets.map((ticket) => (
               <EventTicket
-                item={item}
+                item={ticket.item}
                 tickets={tickets}
                 marginRight="7"
-                key={item._id}
+                key={ticket.item.id}
               />
             ))}
           </ScrollView>
@@ -234,6 +424,11 @@ export default function NewEvent() {
             <Text style={[tw`text-[#797979]`, globalStyles.poppinsFont]}>
               Ticket Name 3: 50
             </Text>
+            <TouchableOpacity
+              style={tw`w-70 h-13 rounded-full justify-center self-center items-center bg-[#013B4F] mt-14`}
+            >
+              <Text style={tw`text-white font-bold`}>Create event</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>

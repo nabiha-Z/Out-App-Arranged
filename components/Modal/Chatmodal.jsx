@@ -8,15 +8,7 @@ export default function CustomModal({ open, setOpen }) {
   const router = useRouter();
   return (
     <View style={globalStyles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={open}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setOpen(!open);
-        }}
-      >
+      <Modal animationType="slide" transparent={true} visible={open}>
         <View style={globalStyles.centeredView}>
           <View style={globalStyles.modalView}>
             <TouchableOpacity
@@ -34,7 +26,10 @@ export default function CustomModal({ open, setOpen }) {
               </Text>
               <TouchableOpacity
                 style={tw`bg-white rounded-full border p-3 border-[#013B4F] mb-4`}
-                onPress={() => router.push("/choices")}
+                onPress={() => {
+                  setOpen(!open);
+                  router.push("/choices");
+                }}
               >
                 <Text style={tw`text-[#013B4F] font-bold text-center`}>
                   Multiple Choices
@@ -42,7 +37,10 @@ export default function CustomModal({ open, setOpen }) {
               </TouchableOpacity>
               <TouchableOpacity
                 style={tw`bg-[#013B4F] rounded-full border p-3 border-[#013B4F] mb-4`}
-                onPress={() => router.push("/subjects")}
+                onPress={() => {
+                  setOpen(!open);
+                  router.push("/subjects");
+                }}
               >
                 <Text style={tw`text-white font-bold text-center`}>
                   Yes and No

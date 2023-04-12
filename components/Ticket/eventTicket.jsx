@@ -2,8 +2,8 @@ import tw from "twrnc";
 import { View, Text, Image } from "react-native";
 import { globalStyles } from "../../styles/globalStyles";
 
-export default function EventTicket({ tickets, item, marginRight}) {
-  const { _id, name, priority, slots, price } = item;
+export default function EventTicket({ tickets, item, marginRight }) {
+  const { _id, name, priority, slots, price, description } = item;
 
   return (
     <View
@@ -19,7 +19,7 @@ export default function EventTicket({ tickets, item, marginRight}) {
           tw`bg-white border border-slate-200 h-16 w-20 justify-center items-center ml-[13rem] z-20  mt-[-8px] rounded`,
         ]}
       >
-        <Text style={tw`font-bold ml-3`}>{price}</Text>
+        <Text style={tw`font-bold ml-3`}>{price}$</Text>
       </View>
 
       <View style={tw`flex flex-row absolute z-40 `}>
