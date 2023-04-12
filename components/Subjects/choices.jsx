@@ -3,38 +3,40 @@ import { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 
-import Slider from "../Chats/slider";
+import Slider from "./slider";
+import ChoicesModal from "../Modal/ChoicesModal";
 
 export default function Choices({ width, heigth }) {
-  const [choices, setChoices] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [title, setTile] = useState("");
+  const [options, setOptions] = useState([]);
 
   return (
     <>
-      <Slider title="What time?" width={width} heigth={heigth} />
-      
-      {choices.map((item) => (
+      {options.map((item) => (
         <Slider
           key={item.id}
-          title="What time?"
+          title={item.title}
+          choices={item.choices ? item.choices : []}
           width={width}
           heigth={heigth}
         />
       ))}
 
       <TouchableOpacity
-        onPress={() =>
-          setChoices([
-            ...choices,
-            {
-              id: choices.length + 1,
-              editable: true,
-            },
-          ])
-        }
+        onPress={() => setOpen(!open)}
         style={tw`bg-[#1180B9] w-12 h-12 rounded-full justify-center self-end items-center m-6`}
       >
         <Feather name="plus" size={24} color="white" />
       </TouchableOpacity>
+      <ChoicesModal
+        open={open}
+        setOpen={setOpen}
+        title={title}
+        setTitle={setTile}
+        options={options}
+        setOptions={setOptions}
+      />
     </>
   );
 }

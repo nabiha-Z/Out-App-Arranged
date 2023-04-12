@@ -29,7 +29,7 @@ export default function NewEvent() {
   const navigation = useNavigation();
   const [error, setError] = useState("");
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("0");
   const [description, setDescription] = useState("");
   const windowHeight = Dimensions.get("window").height;
   const [file, setFile] = useState(null);
@@ -42,6 +42,8 @@ export default function NewEvent() {
   const [dobDropdown, setDOBDropdown] = useState(false);
   const [slots, setSlots] = useState(0);
   const [priority, setPriority] = useState("");
+  const [showPicker, setShowPicker] = useState(false);
+
   const containerStyle = tw`flex flex-row justify-between items-center p-1 pb-2 my-2 border-b border-[#E3E3E3] w-full px-8`;
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
@@ -80,8 +82,16 @@ export default function NewEvent() {
     setFile(null);
   };
 
+  const showDatePicker = () => {
+    setShowPicker(true);
+  };
+
+  const hideDatePicker = () => {
+    setShowPicker(false);
+  };
+
   const addNewTicket = () => {
-    if (name && description && price > 0) {
+    if (name && description && price) {
       setError("");
       setEventTickets([
         ...eventTickets,
@@ -264,21 +274,19 @@ export default function NewEvent() {
             } mb-4 justify-center  w-full px-14`}
           >
             <View style={tw`flex-row justify-between items-center`}>
-              <Text
-                style={[
-                  tw`text-[12px] text-[#868686]`,
-                  globalStyles.poppinsFont,
-                ]}
+              <TouchableOpacity
+                style={tw`w-24 h-8 rounded-lg bg-[#013B4F] p-2`}
+                onPress={() => setShowPicker(true)}
               >
-                Location
-              </Text>
-              <TextInput
-                placeholder="address"
-                style={[
-                  tw`text-[12px] text-[#868686] w-32 rounded-lg bg-white p-1 px-4 border border-slate-200 m-1`,
-                  globalStyles.poppinsFont,
-                ]}
-              />
+                <Text
+                  style={[
+                    tw`text-[12px] text-white `,
+                    globalStyles.poppinsFont,
+                  ]}
+                >
+                  Select date
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
 

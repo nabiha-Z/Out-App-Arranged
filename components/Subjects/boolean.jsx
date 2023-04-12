@@ -4,17 +4,16 @@ import { Feather } from "@expo/vector-icons";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import { globalStyles } from "../../styles/globalStyles";
+import ChoicesModal from "../Modal/ChoicesModal";
 
 export default function Boolean() {
-  const [questions, setQuestions] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [title, setTile] = useState("");
+  const [options, setOptions] = useState([]);
 
-  // const questions = [
-  //   "Are you going to the event? ",
-  //   "Have you booked the ticket?",
-  // ];
   return (
     <View style={tw`flex justify-center items-center pb-20`}>
-      {questions.map((item) => (
+      {options.map((item) => (
         <View
           key={item.id}
           style={[
@@ -22,46 +21,48 @@ export default function Boolean() {
             globalStyles.shadow,
           ]}
         >
-          <View style={tw`rounded-t-lg p-3 bg-[#013B4F]`}>
+          <View style={tw`rounded-t-lg p-3 bg-[#013B4F] mb-2`}>
             <Text style={tw`text-white font-bold text-[17px] text-center`}>
-              Are you going to the event?
+              {item.title}
             </Text>
           </View>
 
-          <TouchableOpacity
-            style={[
-              tw`flex-row justify-center self-center items-center rounded-full m-4 mx-3 bg-[#013B4F] h-10 w-50`,
-              globalStyles.shadow,
-            ]}
-          >
-            <Text style={tw`mr-2 mt-1 text-white`}>Yes</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[
-              tw`flex-row justify-center self-center items-center rounded-full m-1 mx-4 bg-white h-10 w-50`,
-              globalStyles.shadow,
-            ]}
-          >
-            <Text style={tw`mr-2 mt-1 `}>No</Text>
-          </TouchableOpacity>
+          {item.choices.map((element, index) => (
+            <TouchableOpacity
+              style={[
+                tw`flex-row justify-center self-center items-center rounded-full m-2 mx-3 ${
+                  index % 2 === 0 ? "bg-[#013B4F]" : "bg-white"
+                }  h-10 w-50`,
+                globalStyles.shadow,
+              ]}
+            >
+              <Text
+                style={tw`mr-2 mt-1  ${
+                  index % 2 === 0 ? "text-white" : "text-black"
+                }`}
+              >
+                {element}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
       ))}
 
       <TouchableOpacity
-        onPress={() =>
-          setQuestions([
-            ...questions,
-            {
-              id: questions.length + 1,
-              editable: true,
-            },
-          ])
-        }
+        onPress={() => setOpen(!open)}
         style={tw`bg-[#1180B9] w-12 h-12 rounded-full justify-center self-end items-center m-6`}
       >
         <Feather name="plus" size={24} color="white" />
       </TouchableOpacity>
+
+      <ChoicesModal
+        open={open}
+        setOpen={setOpen}
+        title={title}
+        setTitle={setTile}
+        options={options}
+        setOptions={setOptions}
+      />
     </View>
   );
 }

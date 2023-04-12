@@ -44,6 +44,7 @@ export default function Choices() {
       setError("Enter a question first");
     }
   };
+  
   return (
     <ScrollView style={tw`h-${windowHeight * 0.4}`}>
       <View style={tw`bg-[#F1F3F5]`}>
